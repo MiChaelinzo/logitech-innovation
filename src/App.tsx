@@ -17,6 +17,9 @@ import { ROICalculator } from '@/components/ROICalculator'
 import { CommunityPresets } from '@/components/CommunityPresets'
 import { VideoShowcase } from '@/components/VideoShowcase'
 import { Pricing } from '@/components/Pricing'
+import { UserProfile } from '@/components/UserProfile'
+import { QuickActions } from '@/components/QuickActions'
+import { FeaturedBanner } from '@/components/FeaturedBanner'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -106,6 +109,9 @@ function App() {
   return (
     <div className="min-h-screen text-foreground font-['Inter']">
       <Toaster />
+      <UserProfile />
+      <QuickActions />
+      <FeaturedBanner />
       <div className="gradient-mesh fixed inset-0 -z-10" />
       
       <div className="absolute inset-0 -z-10 overflow-hidden">

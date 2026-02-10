@@ -26,36 +26,57 @@ A landing page and interactive demonstration platform for MotionFlow AI, an inno
 - **Progression**: Select application → Adjust parameter dial → Click activate → Watch AI processing → See result specific to that app → View success metrics
 - **Success criteria**: Users try at least 2 different applications
 
-### ROI Calculator (NEW)
-- **Functionality**: Interactive calculator showing time/cost savings
+### User Profile & Gamification (NEW - ENHANCED)
+- **Functionality**: GitHub-integrated user profile with avatar, stats, achievements, and XP system
+- **Purpose**: Create engaging, personalized experience that encourages exploration
+- **Trigger**: Automatic on page load, accessible via top-right profile button
+- **Progression**: View profile → See stats and achievements → Track progress → Level up through interactions → Unlock badges
+- **Success criteria**: Users check profile multiple times, engage with achievement system
+
+### Quick Actions Menu (NEW)
+- **Functionality**: Floating action button with quick access to key sections
+- **Purpose**: Improved navigation and user convenience
+- **Trigger**: Always visible in bottom-right, expands on click
+- **Progression**: Click FAB → View action options → Select action → Navigate to section or perform action
+- **Success criteria**: Users utilize quick actions for faster navigation
+
+### Featured Announcements Banner (NEW)
+- **Functionality**: Dismissible banner carousel showing important updates and promotions
+- **Purpose**: Highlight new features, promotions, and community updates
+- **Trigger**: Appears on page load if not previously dismissed
+- **Progression**: View announcement → Read details → Click CTA or dismiss → See next announcement
+- **Success criteria**: Users engage with announcements, click CTAs
+
+### ROI Calculator (ENHANCED)
+- **Functionality**: Interactive calculator showing time/cost savings with save/load functionality
 - **Purpose**: Help decision-makers justify the purchase
 - **Trigger**: User navigates to ROI calculator section
-- **Progression**: Enter team size → Select tools used → Input hourly rate → See projected savings in time/money → Download report
+- **Progression**: Enter team size → Select tools used → Input hourly rate → See projected savings in time/money → Save calculation for later
 - **Success criteria**: Users complete calculation and see compelling ROI
 
-### Community Preset Browser (NEW)
-- **Functionality**: Browse and save community-created dial configurations
+### Community Preset Browser (ENHANCED)
+- **Functionality**: Browse, filter, search, and favorite community-created dial configurations
 - **Purpose**: Show ecosystem value and inspire use cases
 - **Trigger**: User clicks "Explore Community Presets"
-- **Progression**: Browse preset cards → Filter by app/category → Preview preset details → Save favorites → See download count
-- **Success criteria**: Users interact with at least 3 presets
+- **Progression**: Browse preset cards → Use search and filters → Preview preset details → Favorite presets → See download count and ratings
+- **Success criteria**: Users interact with at least 3 presets, save favorites
 
-### Video Showcase Gallery (NEW)
+### Video Showcase Gallery
 - **Functionality**: Embedded video demonstrations of real usage
 - **Purpose**: Show actual product in action with real professionals
 - **Trigger**: User scrolls to video section
 - **Progression**: View video grid → Click video thumbnail → Watch in modal player → Navigate to next video → Share or download
 - **Success criteria**: >50% of users play at least one video
 
-### Pricing Comparison Tool (NEW)
+### Pricing Comparison Tool
 - **Functionality**: Compare different licensing tiers with feature matrix
 - **Purpose**: Help users choose the right plan
 - **Trigger**: User navigates to pricing section
 - **Progression**: View tier cards → Toggle annual/monthly → Compare features → Select tier → See what's included → Start trial or purchase
 - **Success criteria**: Users understand pricing structure clearly
 
-### Personal Preferences & Bookmarks (NEW)
-- **Functionality**: Save favorite presets, demo configurations, and ROI calculations
+### Personal Preferences & Bookmarks (ENHANCED)
+- **Functionality**: Save favorite presets, demo configurations, and ROI calculations with persistence
 - **Purpose**: Personalized experience that persists across sessions
 - **Trigger**: User clicks save/bookmark buttons throughout site
 - **Progression**: User interacts → Clicks save → Confirmation toast → Data persists → Return later and see saved items
@@ -70,6 +91,11 @@ A landing page and interactive demonstration platform for MotionFlow AI, an inno
 - **Calculator edge cases** - Validate inputs, handle zero/negative values, cap maximums
 - **Video playback issues** - Fallback to thumbnail with external link
 - **Mobile experience** - Touch-friendly controls, simplified layouts, priority content
+- **First-time users** - Featured banner with onboarding hints, achievement tooltips
+- **Returning users** - Persistent state restored, welcome back messages
+- **Profile not loading** - Graceful fallback with generic user experience
+- **Quick actions overlap** - Smart positioning to avoid overlapping with other UI elements
+- **Achievement unlock spam** - Batch notifications, subtle celebration animations
 
 ## Design Direction
 
