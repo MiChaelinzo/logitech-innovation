@@ -20,6 +20,7 @@ import { Pricing } from '@/components/Pricing'
 import { UserProfile } from '@/components/UserProfile'
 import { QuickActions } from '@/components/QuickActions'
 import { FeaturedBanner } from '@/components/FeaturedBanner'
+import { WorkflowComparison } from '@/components/WorkflowComparison'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -299,6 +300,12 @@ function App() {
           </motion.div>
 
           <InteractiveDemo />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <WorkflowComparison />
         </div>
       </section>
 
