@@ -13,6 +13,10 @@ import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { AppScenarios } from '@/components/AppScenarios'
 import { Testimonials } from '@/components/Testimonials'
 import { CaseStudies } from '@/components/CaseStudies'
+import { ROICalculator } from '@/components/ROICalculator'
+import { CommunityPresets } from '@/components/CommunityPresets'
+import { VideoShowcase } from '@/components/VideoShowcase'
+import { Pricing } from '@/components/Pricing'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -117,7 +121,39 @@ function App() {
         />
       </div>
 
-      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-border/50 backdrop-blur-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center gap-2">
+              <Sparkle size={24} weight="duotone" className="text-primary" />
+              <span className="font-['Space_Grotesk'] font-bold text-lg">MotionFlow AI</span>
+            </div>
+            
+            <div className="hidden md:flex items-center gap-6">
+              <button onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm hover:text-primary transition-colors">
+                Demo
+              </button>
+              <button onClick={() => document.getElementById('videos')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm hover:text-primary transition-colors">
+                Videos
+              </button>
+              <button onClick={() => document.getElementById('community')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm hover:text-primary transition-colors">
+                Community
+              </button>
+              <button onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm hover:text-primary transition-colors">
+                ROI
+              </button>
+              <button onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} className="text-sm hover:text-primary transition-colors">
+                Pricing
+              </button>
+              <Button size="sm" className="bg-gradient-to-r from-primary to-accent hover:opacity-90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
+                Get Started
+              </Button>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16">
         <div className="max-w-7xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -154,9 +190,9 @@ function App() {
                 size="lg" 
                 variant="outline" 
                 className="border-primary/50 hover:bg-primary/10 text-lg px-8 py-6"
-                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Explore Features
+                Calculate ROI
                 <ArrowRight className="ml-2" weight="bold" />
               </Button>
             </div>
@@ -321,6 +357,90 @@ function App() {
           </motion.div>
 
           <CaseStudies />
+        </div>
+      </section>
+
+      <section id="videos" className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              See It In Action
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Watch real professionals transform their workflows with MotionFlow AI across different creative applications
+            </p>
+          </motion.div>
+
+          <VideoShowcase />
+        </div>
+      </section>
+
+      <section id="community" className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Community Presets
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Explore thousands of presets created by professional creators. Download, customize, and share your own configurations.
+            </p>
+          </motion.div>
+
+          <CommunityPresets />
+        </div>
+      </section>
+
+      <section id="roi" className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Calculate Your ROI
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              See exactly how much time and money your team could save with MotionFlow AI
+            </p>
+          </motion.div>
+
+          <ROICalculator />
+        </div>
+      </section>
+
+      <section id="pricing" className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Choose Your Plan
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Flexible pricing for individuals, teams, and enterprises. Start with a free trial, upgrade anytime.
+            </p>
+          </motion.div>
+
+          <Pricing />
         </div>
       </section>
 
