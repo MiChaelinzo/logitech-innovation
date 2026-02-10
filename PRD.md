@@ -40,6 +40,13 @@ An interactive pitch deck for "MotionFlow AI" - an intelligent MX Creative Conso
 - **Progression**: User rotates virtual dial or slider → Sees AI prompt parameters update in real-time → Clicks generate button → Watches AI processing animation → Views generated asset with statistics → Can insert to project or regenerate
 - **Success criteria**: Demo is responsive and smooth, generation animation is engaging, users understand the dial-to-AI workflow, demo works on both desktop and mobile
 
+### Application-Specific Scenarios
+- **Functionality**: Interactive demos for 8+ creative applications (Blender, Premiere Pro, Photoshop, DaVinci Resolve, Ableton Live, Xcode, Home Automation, Figma) showing context-aware dial controls
+- **Purpose**: Demonstrate the plugin's versatility and intelligent adaptation to different creative workflows
+- **Trigger**: User scrolls to scenarios section or switches between application tabs
+- **Progression**: Select application from tab menu → View app-specific features and parameters → Adjust dial to control parameter → Activate AI processing → See context-specific results → View success metrics and apply to workflow
+- **Success criteria**: All 8 apps have unique parameters and results, transitions are smooth, each scenario clearly demonstrates app-specific value, demos work on mobile with touch controls
+
 ### Technical Specifications Section
 - **Functionality**: Display API integration details, supported applications, hardware requirements, and SDK features
 - **Purpose**: Provide technical credibility and implementation feasibility for judges/stakeholders

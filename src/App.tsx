@@ -10,6 +10,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
 import { InteractiveDemo } from '@/components/InteractiveDemo'
+import { AppScenarios } from '@/components/AppScenarios'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -144,7 +145,7 @@ function App() {
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all hover:scale-105 text-lg px-8 py-6 font-semibold"
                 onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Try Interactive Demo
+                Try Interactive Demos
                 <PlayCircle className="ml-2" weight="bold" />
               </Button>
               <Button 
@@ -254,6 +255,28 @@ function App() {
           </motion.div>
 
           <InteractiveDemo />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Application-Specific Scenarios
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Explore how MotionFlow AI adapts to each creative tool with intelligent, context-aware controls. 
+              Try interactive demos for Blender, Premiere Pro, Photoshop, DaVinci Resolve, and more.
+            </p>
+          </motion.div>
+
+          <AppScenarios />
         </div>
       </section>
 
