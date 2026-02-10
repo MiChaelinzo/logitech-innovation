@@ -11,6 +11,8 @@ import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
 import { InteractiveDemo } from '@/components/InteractiveDemo'
 import { AppScenarios } from '@/components/AppScenarios'
+import { Testimonials } from '@/components/Testimonials'
+import { CaseStudies } from '@/components/CaseStudies'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -277,6 +279,48 @@ function App() {
           </motion.div>
 
           <AppScenarios />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Trusted by Creative Professionals
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Hear from industry leaders who have transformed their workflows with MotionFlow AI
+            </p>
+          </motion.div>
+
+          <Testimonials />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Real-World Success Stories
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Discover how leading studios and agencies achieved measurable results with MotionFlow AI
+            </p>
+          </motion.div>
+
+          <CaseStudies />
         </div>
       </section>
 
