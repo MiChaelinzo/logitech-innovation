@@ -33,6 +33,13 @@ An interactive pitch deck for "MotionFlow AI" - an intelligent MX Creative Conso
 - **Progression**: Select application type → View contextual dial/button mappings → See workflow automation in action → Understand time savings
 - **Success criteria**: Demos are visually clear, show real-world scenarios, communicate efficiency gains
 
+### Interactive Live Demo
+- **Functionality**: Fully interactive simulation of the MX Creative Console dial with real-time AI asset generation demonstration
+- **Purpose**: Allow users to experience the plugin's core functionality firsthand through hands-on interaction
+- **Trigger**: User scrolls to demo section or clicks "Try Interactive Demo" CTA
+- **Progression**: User rotates virtual dial or slider → Sees AI prompt parameters update in real-time → Clicks generate button → Watches AI processing animation → Views generated asset with statistics → Can insert to project or regenerate
+- **Success criteria**: Demo is responsive and smooth, generation animation is engaging, users understand the dial-to-AI workflow, demo works on both desktop and mobile
+
 ### Technical Specifications Section
 - **Functionality**: Display API integration details, supported applications, hardware requirements, and SDK features
 - **Purpose**: Provide technical credibility and implementation feasibility for judges/stakeholders

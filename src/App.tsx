@@ -9,6 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Toaster } from '@/components/ui/sonner'
 import { toast } from 'sonner'
+import { InteractiveDemo } from '@/components/InteractiveDemo'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -141,19 +142,19 @@ function App() {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all hover:scale-105 text-lg px-8 py-6 font-semibold"
-                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Explore Features
-                <ArrowRight className="ml-2" weight="bold" />
+                Try Interactive Demo
+                <PlayCircle className="ml-2" weight="bold" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
                 className="border-primary/50 hover:bg-primary/10 text-lg px-8 py-6"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Request Demo
-                <PlayCircle className="ml-2" weight="bold" />
+                Explore Features
+                <ArrowRight className="ml-2" weight="bold" />
               </Button>
             </div>
           </motion.div>
@@ -232,6 +233,27 @@ function App() {
               </motion.div>
             ))}
           </div>
+        </div>
+      </section>
+
+      <section id="demo" className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Interactive Demo
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Experience the power of MotionFlow AI firsthand. Simulate the MX Creative Console's physical controls and watch AI generate assets in real-time.
+            </p>
+          </motion.div>
+
+          <InteractiveDemo />
         </div>
       </section>
 
