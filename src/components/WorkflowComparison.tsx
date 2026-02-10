@@ -1,6 +1,410 @@
-[
+import { useState } from 'react'
+import { motion } from 'framer-motion'
+import { Badge } from '@/components/ui/badge'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { 
+  Check,
+  X,
+  Lightning,
+  Sparkle,
+  Mouse,
+  Clock,
+  Target,
+  GameController
+} from '@phosphor-icons/react'
+
+const workflowComparisons = [
+  { name: 'AI Asset Generation', traditional: false, motionflow: true, advantage: 'motionflow' },
+  { name: 'Context Awareness', traditional: false, motionflow: true, advantage: 'motionflow' },
+  { name: 'Preset Library', traditional: 'Limited', motionflow: 'Community-Driven', advantage: 'motionflow' },
+  { name: 'Tactile Feedback', traditional: false, motionflow: true, advantage: 'motionflow' },
+  { name: 'Parameter Precision', traditional: 'Mouse only', motionflow: 'Dial + Mouse', advantage: 'motionflow' },
+  { name: 'Workflow Speed', traditional: '100%', motionflow: '170%', advantage: 'motionflow' }
+]
+
+const timeComparisons = [
   {
-    "path": "src/components/WorkflowComparison.tsx",
-    "content": "import { useState } from 'react'\nimport { motion } from 'framer-motion'\nimport { Badge } from '@/components/ui/badge'\nimport { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'\nimport { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'\nimport { Button } from '@/components/ui/button'\nimport { \n  Check,\n  X,\n  Lightning,\n  Sparkle,\n  Mouse,\n  Clock,\n  Target,\n  GameController\n} from '@phosphor-icons/react'\n\nconst workflowComparisons = [\n  { name: 'AI Asset Generation', traditional: false, motionflow: true, advantage: 'motionflow' },\n  { name: 'Context Awareness', traditional: false, motionflow: true, advantage: 'motionflow' },\n  { name: 'Preset Library', traditional: 'Limited', motionflow: 'Community-Driven', advantage: 'motionflow' },\n  { name: 'Tactile Feedback', traditional: false, motionflow: true, advantage: 'motionflow' },\n  { name: 'Parameter Precision', traditional: 'Mouse only', motionflow: 'Dial + Mouse', advantage: 'motionflow' },\n  { name: 'Workflow Speed', traditional: '100%', motionflow: '170%', advantage: 'motionflow' }\n]\n\nconst timeComparisons = [\n  {\n    task: 'Color Grading 10 Clips',\n    traditional: 45,\n    motionflow: 12,\n    description: 'Real-time dial control + AI matching'\n  },\n  {\n    task: 'Generate 5 Texture Assets',\n    traditional: 120,\n    motionflow: 8,\n    description: 'AI generation vs manual creation'\n  },\n  {\n    task: 'Apply Effects to Timeline',\n    traditional: 30,\n    motionflow: 8,\n    description: 'Preset activation vs manual adjustment'\n  },\n  {\n    task: 'Adjust 20 Layer Properties',\n    traditional: 25,\n    motionflow: 7,\n    description: 'Dial control vs mouse clicking'\n  },\n  {\n    task: 'Switch Between 3 Apps',\n    traditional: 15,\n    motionflow: 5,\n    description: 'Context-aware profile switching'\n  }\n]\n\nexport function WorkflowComparison() {\n  const [activeView, setActiveView] = useState<'side-by-side' | 'animation'>('side-by-side')\n  const [animationStep, setAnimationStep] = useState(0)\n\n  const startAnimation = () => {\n    setAnimationStep(0)\n    const interval = setInterval(() => {\n      setAnimationStep(prev => {\n        if (prev >= 4) {\n          clearInterval(interval)\n          return 0\n        }\n        return prev + 1\n      })\n    }, 1500)\n  }\n\n  const traditionalSteps = [\n    'Open menu',\n    'Click through options',\n    'Adjust with mouse',\n    'Apply settings',\n    'Repeat for each item'\n  ]\n\n  const motionflowSteps = [\n    'Rotate dial',\n    'AI generates',\n    'Apply to all',\n    'Done!'\n  ]\n\n  return (\n    <div>\n      <div className=\"text-center mb-8\">\n        <Badge className=\"mb-4 px-4 py-2 bg-accent/20 text-accent border-accent/30\">\n          <Target size={16} weight=\"fill\" className=\"mr-2\" />\n          See the Difference\n        </Badge>\n        <h3 className=\"font-['Space_Grotesk'] font-semibold text-3xl mb-3\">\n          Traditional vs MotionFlow AI\n        </h3>\n        <p className=\"text-muted-foreground text-lg max-w-3xl mx-auto\">\n          Compare how professional workflows transform with AI-powered physical controls\n        </p>\n      </div>\n\n      <Tabs value={activeView} onValueChange={(v) => setActiveView(v as typeof activeView)} className=\"w-full\">\n        <TabsList className=\"grid w-full max-w-md mx-auto grid-cols-2 bg-card/50 glass-effect\">\n          <TabsTrigger value=\"side-by-side\">Feature Comparison</TabsTrigger>\n          <TabsTrigger value=\"animation\">Workflow Animation</TabsTrigger>\n        </TabsList>\n\n        <TabsContent value=\"side-by-side\" className=\"mt-8 space-y-8\">\n          <Card className=\"glass-effect border-border/50\">\n            <CardHeader>\n              <CardTitle className=\"font-['Space_Grotesk'] text-2xl\">Feature Comparison</CardTitle>\n            </CardHeader>\n            <CardContent>\n              <div className=\"overflow-x-auto\">\n                <table className=\"w-full\">\n                  <thead>\n                    <tr className=\"border-b border-border\">\n                      <th className=\"text-left py-4 px-4 font-semibold\">Feature</th>\n                      <th className=\"text-center py-4 px-4 font-semibold\">\n                        <div className=\"flex flex-col items-center gap-2\">\n                          <Mouse size={24} weight=\"duotone\" className=\"text-muted-foreground\" />\n                          <span>Traditional</span>\n                        </div>\n                      </th>\n                      <th className=\"text-center py-4 px-4 font-semibold\">\n                        <div className=\"flex flex-col items-center gap-2\">\n                          <Sparkle size={24} weight=\"duotone\" className=\"text-primary\" />\n                          <span>MotionFlow AI</span>\n                        </div>\n                      </th>\n                    </tr>\n                  </thead>\n                  <tbody>\n                    {workflowComparisons.map((feature, idx) => (\n                      <motion.tr\n                        key={feature.name}\n                        initial={{ opacity: 0, x: -20 }}\n                        animate={{ opacity: 1, x: 0 }}\n                        transition={{ delay: idx * 0.05 }}\n                        className=\"border-b border-border/30 hover:bg-muted/20 transition-colors\"\n                      >\n                        <td className=\"py-4 px-4 font-medium\">{feature.name}</td>\n                        <td className=\"py-4 px-4 text-center\">\n                          {typeof feature.traditional === 'boolean' ? (\n                            feature.traditional ? (\n                              <Check size={20} weight=\"bold\" className=\"text-primary mx-auto\" />\n                            ) : (\n                              <X size={20} weight=\"bold\" className=\"text-muted-foreground mx-auto\" />\n                            )\n                          ) : (\n                            <span className=\"text-sm text-muted-foreground\">{feature.traditional}</span>\n                          )}\n                        </td>\n                        <td className=\"py-4 px-4 text-center\">\n                          {typeof feature.motionflow === 'boolean' ? (\n                            feature.motionflow ? (\n                              <Check size={20} weight=\"bold\" className=\"text-accent mx-auto\" />\n                            ) : (\n                              <X size={20} weight=\"bold\" className=\"text-muted-foreground mx-auto\" />\n                            )\n                          ) : (\n                            <span className=\"text-sm font-semibold text-accent\">{feature.motionflow}</span>\n                          )}\n                        </td>\n                      </motion.tr>\n                    ))}\n                  </tbody>\n                </table>\n              </div>\n            </CardContent>\n          </Card>\n\n          <div className=\"grid md:grid-cols-2 gap-6\">\n            <Card className=\"glass-effect border-border/50\">\n              <CardHeader>\n                <CardTitle className=\"font-['Space_Grotesk'] text-xl flex items-center gap-2\">\n                  <Clock size={24} weight=\"duotone\" className=\"text-primary\" />\n                  Time Savings Breakdown\n                </CardTitle>\n              </CardHeader>\n              <CardContent className=\"space-y-4\">\n                {timeComparisons.map((comparison, idx) => (\n                  <motion.div\n                    key={comparison.task}\n                    initial={{ opacity: 0, y: 10 }}\n                    animate={{ opacity: 1, y: 0 }}\n                    transition={{ delay: idx * 0.1 }}\n                    className=\"space-y-2\"\n                  >\n                    <div className=\"flex items-center justify-between\">\n                      <span className=\"font-medium text-sm\">{comparison.task}</span>\n                      <Badge className=\"bg-accent/20 text-accent border-accent/30\">\n                        {Math.round(((comparison.traditional - comparison.motionflow) / comparison.traditional) * 100)}% faster\n                      </Badge>\n                    </div>\n\n                    <div className=\"grid grid-cols-2 gap-3\">\n                      <div className=\"flex-1 h-8 bg-muted/30 rounded-lg relative overflow-hidden\">\n                        <motion.div\n                          initial={{ width: 0 }}\n                          animate={{ width: '100%' }}\n                          transition={{ duration: 0.8, delay: idx * 0.1 }}\n                          className=\"h-full bg-muted-foreground/40 flex items-center justify-end pr-2\"\n                        >\n                          <span className=\"text-xs font-mono text-foreground\">{comparison.traditional}m</span>\n                        </motion.div>\n                      </div>\n\n                      <div className=\"flex-1 h-8 bg-muted/30 rounded-lg relative overflow-hidden\">\n                        <motion.div\n                          initial={{ width: 0 }}\n                          animate={{ width: `${(comparison.motionflow / comparison.traditional) * 100}%` }}\n                          transition={{ duration: 0.8, delay: idx * 0.1 }}\n                          className=\"h-full bg-gradient-to-r from-primary to-accent flex items-center justify-end pr-2\"\n                        >\n                          <span className=\"text-xs font-mono text-primary-foreground\">{comparison.motionflow}m</span>\n                        </motion.div>\n                      </div>\n                    </div>\n                    <p className=\"text-xs text-muted-foreground\">{comparison.description}</p>\n                  </motion.div>\n                ))}\n\n                <div className=\"pt-4 border-t border-border/30\">\n                  <div className=\"flex items-center justify-between text-lg font-semibold\">\n                    <span>Session Total:</span>\n                    <div className=\"flex gap-3\">\n                      <span className=\"text-muted-foreground line-through\">\n                        {timeComparisons.reduce((acc, c) => acc + c.traditional, 0)}m\n                      </span>\n                      <span className=\"text-accent\">\n                        {timeComparisons.reduce((acc, c) => acc + c.motionflow, 0)}m\n                      </span>\n                    </div>\n                  </div>\n                  <Badge className=\"w-full justify-center mt-2 py-2 bg-accent/20 text-accent border-accent/30\">\n                    <Lightning size={16} weight=\"fill\" className=\"mr-2\" />\n                    Save {timeComparisons.reduce((acc, c) => acc + c.traditional, 0) - timeComparisons.reduce((acc, c) => acc + c.motionflow, 0)} minutes per session\n                  </Badge>\n                </div>\n              </CardContent>\n            </Card>\n\n            <Card className=\"glass-effect border-border/50 bg-gradient-to-br from-accent/5 to-primary/5\">\n              <CardHeader>\n                <CardTitle className=\"font-['Space_Grotesk'] text-xl\">Why Physical Controls Matter</CardTitle>\n              </CardHeader>\n              <CardContent className=\"space-y-4\">\n                <div className=\"space-y-3\">\n                  {[\n                    {\n                      icon: GameController,\n                      title: 'Tactile Precision',\n                      description: 'Physical dials provide fine-grained control impossible with a mouse or keyboard alone'\n                    },\n                    {\n                      icon: Lightning,\n                      title: 'Muscle Memory',\n                      description: 'Build intuitive workflows that become second nature, reducing cognitive load'\n                    },\n                    {\n                      icon: Sparkle,\n                      title: 'AI Enhancement',\n                      description: 'Combine the precision of physical control with the power of AI generation'\n                    },\n                    {\n                      icon: Target,\n                      title: 'Context Awareness',\n                      description: 'Smart detection adapts controls to your current tool and task automatically'\n                    }\n                  ].map((benefit, idx) => {\n                    const Icon = benefit.icon\n                    return (\n                      <motion.div\n                        key={benefit.title}\n                        initial={{ opacity: 0, x: 20 }}\n                        animate={{ opacity: 1, x: 0 }}\n                        transition={{ delay: idx * 0.1 }}\n                        className=\"flex items-start gap-3 p-3 rounded-lg bg-card/50 border border-border/30\"\n                      >\n                        <div className=\"w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0\">\n                          <Icon size={20} weight=\"duotone\" className=\"text-primary-foreground\" />\n                        </div>\n                        <div>\n                          <h4 className=\"font-semibold text-sm mb-1\">{benefit.title}</h4>\n                          <p className=\"text-xs text-muted-foreground\">{benefit.description}</p>\n                        </div>\n                      </motion.div>\n                    )\n                  })}\n                </div>\n              </CardContent>\n            </Card>\n          </div>\n        </TabsContent>\n\n        <TabsContent value=\"animation\" className=\"mt-8\">\n          <Card className=\"glass-effect border-border/50\">\n            <CardHeader>\n              <CardTitle className=\"font-['Space_Grotesk'] text-2xl\">Workflow Animation</CardTitle>\n              <p className=\"text-sm text-muted-foreground\">\n                Watch how tasks are completed with traditional methods vs MotionFlow AI\n              </p>\n            </CardHeader>\n            <CardContent className=\"space-y-8\">\n              <div className=\"text-center\">\n                <Button\n                  onClick={startAnimation}\n                  className=\"bg-gradient-to-r from-primary to-accent hover:opacity-90\"\n                >\n                  <Lightning size={20} weight=\"fill\" />\n                  Start Comparison Animation\n                </Button>\n              </div>\n\n              <div className=\"grid md:grid-cols-2 gap-8\">\n                <div className=\"space-y-4\">\n                  <div className=\"flex items-center gap-3 mb-4\">\n                    <Mouse size={32} weight=\"duotone\" className=\"text-muted-foreground\" />\n                    <h3 className=\"font-['Space_Grotesk'] font-semibold text-xl\">Traditional Workflow</h3>\n                  </div>\n                  \n                  <div className=\"space-y-2\">\n                    {traditionalSteps.map((step, idx) => (\n                      <motion.div\n                        key={idx}\n                        className=\"p-4 rounded-lg border border-border/30 bg-muted/20\"\n                        animate={{\n                          backgroundColor: animationStep === idx ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.05)',\n                          scale: animationStep === idx ? 1.02 : 1\n                        }}\n                        transition={{ duration: 0.3 }}\n                      >\n                        <div className=\"flex items-center gap-3\">\n                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${\n                            animationStep > idx ? 'bg-primary/30 text-primary' : \n                            animationStep === idx ? 'bg-primary text-primary-foreground' : \n                            'bg-muted text-muted-foreground'\n                          }`}>\n                            {animationStep > idx ? <Check size={16} weight=\"bold\" /> : idx + 1}\n                          </div>\n                          <span className={animationStep >= idx ? 'font-medium' : 'text-muted-foreground'}>\n                            {step}\n                          </span>\n                        </div>\n                      </motion.div>\n                    ))}\n                  </div>\n\n                  <div className=\"p-4 rounded-lg bg-muted/30 border border-border/30 text-center\">\n                    <p className=\"text-sm text-muted-foreground mb-1\">Total Time:</p>\n                    <p className=\"text-2xl font-bold\">~45 seconds</p>\n                  </div>\n                </div>\n\n                <div className=\"space-y-4\">\n                  <div className=\"flex items-center gap-3 mb-4\">\n                    <Sparkle size={32} weight=\"duotone\" className=\"text-primary\" />\n                    <h3 className=\"font-['Space_Grotesk'] font-semibold text-xl text-primary\">MotionFlow AI</h3>\n                  </div>\n                  \n                  <div className=\"space-y-2\">\n                    {motionflowSteps.map((step, idx) => (\n                      <motion.div\n                        key={idx}\n                        className=\"p-4 rounded-lg border border-primary/30 bg-primary/5\"\n                        animate={{\n                          backgroundColor: animationStep === idx ? 'rgba(76, 201, 240, 0.2)' : 'rgba(76, 201, 240, 0.05)',\n                          scale: animationStep === idx ? 1.02 : 1\n                        }}\n                        transition={{ duration: 0.3 }}\n                      >\n                        <div className=\"flex items-center gap-3\">\n                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${\n                            animationStep > idx ? 'bg-accent/30 text-accent' : \n                            animationStep === idx ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground' : \n                            'bg-muted text-muted-foreground'\n                          }`}>\n                            {animationStep > idx ? <Check size={16} weight=\"bold\" /> : idx + 1}\n                          </div>\n                          <span className={animationStep >= idx ? 'font-medium' : 'text-muted-foreground'}>\n                            {step}\n                          </span>\n                        </div>\n                      </motion.div>\n                    ))}\n                  </div>\n\n                  <div className=\"p-4 rounded-lg bg-gradient-to-r from-primary/10 to-accent/10 border border-accent/30 text-center\">\n                    <p className=\"text-sm text-muted-foreground mb-1\">Total Time:</p>\n                    <p className=\"text-2xl font-bold text-accent\">~8 seconds</p>\n                    <Badge className=\"mt-2 bg-accent/20 text-accent border-accent/30\">\n                      <Lightning size={14} weight=\"fill\" className=\"mr-1\" />\n                      5.6x Faster\n                    </Badge>\n                  </div>\n                </div>\n              </div>\n            </CardContent>\n          </Card>\n        </TabsContent>\n      </Tabs>\n    </div>\n  )\n}\n"
+    task: 'Color Grading 10 Clips',
+    traditional: 45,
+    motionflow: 12,
+    description: 'Real-time dial control + AI matching'
+  },
+  {
+    task: 'Generate 5 Texture Assets',
+    traditional: 120,
+    motionflow: 8,
+    description: 'AI generation vs manual creation'
+  },
+  {
+    task: 'Apply Effects to Timeline',
+    traditional: 30,
+    motionflow: 8,
+    description: 'Preset activation vs manual adjustment'
+  },
+  {
+    task: 'Adjust 20 Layer Properties',
+    traditional: 25,
+    motionflow: 7,
+    description: 'Dial control vs mouse clicking'
+  },
+  {
+    task: 'Switch Between 3 Apps',
+    traditional: 15,
+    motionflow: 5,
+    description: 'Context-aware profile switching'
   }
 ]
+
+export function WorkflowComparison() {
+  const [activeView, setActiveView] = useState<'side-by-side' | 'animation'>('side-by-side')
+  const [animationStep, setAnimationStep] = useState(0)
+
+  const startAnimation = () => {
+    setAnimationStep(0)
+    const interval = setInterval(() => {
+      setAnimationStep(prev => {
+        if (prev >= 4) {
+          clearInterval(interval)
+          return 0
+        }
+        return prev + 1
+      })
+    }, 1500)
+  }
+
+  const traditionalSteps = [
+    'Open menu',
+    'Click through options',
+    'Adjust with mouse',
+    'Apply settings',
+    'Repeat for each item'
+  ]
+
+  const motionflowSteps = [
+    'Rotate dial',
+    'AI generates',
+    'Apply to all',
+    'Done!'
+  ]
+
+  return (
+    <div>
+      <div className="text-center mb-8">
+        <Badge className="mb-4 px-4 py-2 bg-accent/20 text-accent border-accent/30">
+          <Target size={16} weight="fill" className="mr-2" />
+          See the Difference
+        </Badge>
+        <h3 className="font-['Space_Grotesk'] font-semibold text-3xl mb-3">
+          Traditional vs MotionFlow AI
+        </h3>
+        <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          Compare how professional workflows transform with AI-powered physical controls
+        </p>
+      </div>
+
+      <Tabs value={activeView} onValueChange={(v) => setActiveView(v as typeof activeView)} className="w-full">
+        <TabsList className="grid w-full max-w-md mx-auto grid-cols-2 bg-card/50 glass-effect">
+          <TabsTrigger value="side-by-side">Feature Comparison</TabsTrigger>
+          <TabsTrigger value="animation">Workflow Animation</TabsTrigger>
+        </TabsList>
+
+        <TabsContent value="side-by-side" className="mt-8 space-y-8">
+          <Card className="glass-effect border-border/50">
+            <CardHeader>
+              <CardTitle className="font-['Space_Grotesk'] text-2xl">Feature Comparison</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-border">
+                      <th className="text-left py-4 px-4 font-semibold">Feature</th>
+                      <th className="text-center py-4 px-4 font-semibold">
+                        <div className="flex flex-col items-center gap-2">
+                          <Mouse size={24} weight="duotone" className="text-muted-foreground" />
+                          <span>Traditional</span>
+                        </div>
+                      </th>
+                      <th className="text-center py-4 px-4 font-semibold">
+                        <div className="flex flex-col items-center gap-2">
+                          <Sparkle size={24} weight="duotone" className="text-primary" />
+                          <span>MotionFlow AI</span>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {workflowComparisons.map((feature, idx) => (
+                      <motion.tr
+                        key={feature.name}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.05 }}
+                        className="border-b border-border/30 hover:bg-muted/20 transition-colors"
+                      >
+                        <td className="py-4 px-4 font-medium">{feature.name}</td>
+                        <td className="py-4 px-4 text-center">
+                          {typeof feature.traditional === 'boolean' ? (
+                            feature.traditional ? (
+                              <Check size={20} weight="bold" className="text-primary mx-auto" />
+                            ) : (
+                              <X size={20} weight="bold" className="text-muted-foreground mx-auto" />
+                            )
+                          ) : (
+                            <span className="text-sm text-muted-foreground">{feature.traditional}</span>
+                          )}
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          {typeof feature.motionflow === 'boolean' ? (
+                            feature.motionflow ? (
+                              <Check size={20} weight="bold" className="text-accent mx-auto" />
+                            ) : (
+                              <X size={20} weight="bold" className="text-muted-foreground mx-auto" />
+                            )
+                          ) : (
+                            <span className="text-sm font-semibold text-accent">{feature.motionflow}</span>
+                          )}
+                        </td>
+                      </motion.tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </CardContent>
+          </Card>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <Card className="glass-effect border-border/50">
+              <CardHeader>
+                <CardTitle className="font-['Space_Grotesk'] text-xl flex items-center gap-2">
+                  <Clock size={24} weight="duotone" className="text-primary" />
+                  Time Savings Breakdown
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                {timeComparisons.map((comparison, idx) => (
+                  <motion.div
+                    key={comparison.task}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="space-y-2"
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className="font-medium text-sm">{comparison.task}</span>
+                      <Badge className="bg-accent/20 text-accent border-accent/30">
+                        {Math.round(((comparison.traditional - comparison.motionflow) / comparison.traditional) * 100)}% faster
+                      </Badge>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <div className="flex-1 h-8 bg-muted/30 rounded-lg relative overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: '100%' }}
+                          transition={{ duration: 0.8, delay: idx * 0.1 }}
+                          className="h-full bg-muted-foreground/40 flex items-center justify-end pr-2"
+                        >
+                          <span className="text-xs font-mono text-foreground">{comparison.traditional}m</span>
+                        </motion.div>
+                      </div>
+
+                      <div className="flex-1 h-8 bg-muted/30 rounded-lg relative overflow-hidden">
+                        <motion.div
+                          initial={{ width: 0 }}
+                          animate={{ width: `${(comparison.motionflow / comparison.traditional) * 100}%` }}
+                          transition={{ duration: 0.8, delay: idx * 0.1 }}
+                          className="h-full bg-gradient-to-r from-primary to-accent flex items-center justify-end pr-2"
+                        >
+                          <span className="text-xs font-mono text-primary-foreground">{comparison.motionflow}m</span>
+                        </motion.div>
+                      </div>
+                    </div>
+                    <p className="text-xs text-muted-foreground">{comparison.description}</p>
+                  </motion.div>
+                ))}
+
+                <div className="pt-4 border-t border-border/30">
+                  <div className="flex items-center justify-between text-lg font-semibold">
+                    <span>Session Total:</span>
+                    <div className="flex gap-3">
+                      <span className="text-muted-foreground line-through">
+                        {timeComparisons.reduce((acc, c) => acc + c.traditional, 0)}m
+                      </span>
+                      <span className="text-accent">
+                        {timeComparisons.reduce((acc, c) => acc + c.motionflow, 0)}m
+                      </span>
+                    </div>
+                  </div>
+                  <Badge className="w-full justify-center mt-2 py-2 bg-accent/20 text-accent border-accent/30">
+                    <Lightning size={16} weight="fill" className="mr-2" />
+                    Save {timeComparisons.reduce((acc, c) => acc + c.traditional, 0) - timeComparisons.reduce((acc, c) => acc + c.motionflow, 0)} minutes per session
+                  </Badge>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="glass-effect border-border/50 bg-gradient-to-br from-accent/5 to-primary/5">
+              <CardHeader>
+                <CardTitle className="font-['Space_Grotesk'] text-xl">Why Physical Controls Matter</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  {[
+                    {
+                      icon: GameController,
+                      title: 'Tactile Precision',
+                      description: 'Physical dials provide fine-grained control impossible with a mouse or keyboard alone'
+                    },
+                    {
+                      icon: Lightning,
+                      title: 'Muscle Memory',
+                      description: 'Build intuitive workflows that become second nature, reducing cognitive load'
+                    },
+                    {
+                      icon: Sparkle,
+                      title: 'AI Enhancement',
+                      description: 'Combine the precision of physical control with the power of AI generation'
+                    },
+                    {
+                      icon: Target,
+                      title: 'Context Awareness',
+                      description: 'Smart detection adapts controls to your current tool and task automatically'
+                    }
+                  ].map((benefit, idx) => {
+                    const Icon = benefit.icon
+                    return (
+                      <motion.div
+                        key={benefit.title}
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: idx * 0.1 }}
+                        className="flex items-start gap-3 p-3 rounded-lg bg-card/50 border border-border/30"
+                      >
+                        <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center flex-shrink-0">
+                          <Icon size={20} weight="duotone" className="text-primary-foreground" />
+                        </div>
+                        <div>
+                          <h4 className="font-semibold text-sm mb-1">{benefit.title}</h4>
+                          <p className="text-xs text-muted-foreground">{benefit.description}</p>
+                        </div>
+                      </motion.div>
+                    )
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </TabsContent>
+
+        <TabsContent value="animation" className="mt-8">
+          <Card className="glass-effect border-border/50">
+            <CardHeader>
+              <CardTitle className="font-['Space_Grotesk'] text-2xl">Workflow Animation</CardTitle>
+              <p className="text-sm text-muted-foreground">
+                Watch how tasks are completed with traditional methods vs MotionFlow AI
+              </p>
+            </CardHeader>
+            <CardContent className="space-y-8">
+              <div className="text-center">
+                <Button
+                  onClick={startAnimation}
+                  className="bg-gradient-to-r from-primary to-accent hover:opacity-90"
+                >
+                  <Lightning size={20} weight="fill" />
+                  Start Comparison Animation
+                </Button>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Mouse size={32} weight="duotone" className="text-muted-foreground" />
+                    <h3 className="font-['Space_Grotesk'] font-semibold text-xl">Traditional Workflow</h3>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {traditionalSteps.map((step, idx) => (
+                      <motion.div
+                        key={idx}
+                        className="p-4 rounded-lg border border-border/30 bg-muted/20"
+                        animate={{
+                          backgroundColor: animationStep === idx ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.05)',
+                          scale: animationStep === idx ? 1.02 : 1
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                            animationStep > idx ? 'bg-primary/30 text-primary' : 
+                            animationStep === idx ? 'bg-primary text-primary-foreground' : 
+                            'bg-muted text-muted-foreground'
+                          }`}>
+                            {animationStep > idx ? <Check size={16} weight="bold" /> : idx + 1}
+                          </div>
+                          <span className={animationStep >= idx ? 'font-medium' : 'text-muted-foreground'}>
+                            {step}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-muted/30 border border-border/30 text-center">
+                    <p className="text-sm text-muted-foreground mb-1">Total Time:</p>
+                    <p className="text-2xl font-bold">~45 seconds</p>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Sparkle size={32} weight="duotone" className="text-primary" />
+                    <h3 className="font-['Space_Grotesk'] font-semibold text-xl text-primary">MotionFlow AI</h3>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    {motionflowSteps.map((step, idx) => (
+                      <motion.div
+                        key={idx}
+                        className="p-4 rounded-lg border border-primary/30 bg-primary/5"
+                        animate={{
+                          backgroundColor: animationStep === idx ? 'rgba(76, 201, 240, 0.2)' : 'rgba(76, 201, 240, 0.05)',
+                          scale: animationStep === idx ? 1.02 : 1
+                        }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                            animationStep > idx ? 'bg-accent/30 text-accent' : 
+                            animationStep === idx ? 'bg-gradient-to-r from-primary to-accent text-primary-foreground' : 
+                            'bg-muted text-muted-foreground'
+                          }`}>
+                            {animationStep > idx ? <Check size={16} weight="bold" /> : idx + 1}
+                          </div>
+                          <span className={animationStep >= idx ? 'font-medium' : 'text-muted-foreground'}>
+                            {step}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-gradient-to-r from-primary/10 to-accent/10 border border-accent/30 text-center">
+                    <p className="text-sm text-muted-foreground mb-1">Total Time:</p>
+                    <p className="text-2xl font-bold text-accent">~8 seconds</p>
+                    <Badge className="mt-2 bg-accent/20 text-accent border-accent/30">
+                      <Lightning size={14} weight="fill" className="mr-1" />
+                      5.6x Faster
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </div>
+  )
+}
