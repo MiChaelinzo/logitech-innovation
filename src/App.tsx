@@ -21,6 +21,13 @@ import { UserProfile } from '@/components/UserProfile'
 import { QuickActions } from '@/components/QuickActions'
 import { FeaturedBanner } from '@/components/FeaturedBanner'
 import { WorkflowComparison } from '@/components/WorkflowComparison'
+import { AIInsights } from '@/components/AIInsights'
+import { LiveHardwareVisualization } from '@/components/LiveHardwareVisualization'
+import { KeyboardShortcuts } from '@/components/KeyboardShortcuts'
+import { AnalyticsDashboard } from '@/components/AnalyticsDashboard'
+import { BeforeAfterComparison } from '@/components/BeforeAfterComparison'
+import { CollaborationPreview } from '@/components/CollaborationPreview'
+import { FeatureHighlights } from '@/components/FeatureHighlights'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -113,6 +120,7 @@ function App() {
       <UserProfile />
       <QuickActions />
       <FeaturedBanner />
+      <KeyboardShortcuts />
       <div className="gradient-mesh fixed inset-0 -z-10" />
       
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -251,7 +259,9 @@ function App() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <FeatureHighlights />
+
+          <div className="grid md:grid-cols-2 gap-8 mt-12">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -305,7 +315,77 @@ function App() {
 
       <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Live Hardware Preview
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              See a real-time simulation of the MX Creative Console in action
+            </p>
+          </motion.div>
+
+          <LiveHardwareVisualization />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto space-y-16">
+          <BeforeAfterComparison />
+          <AIInsights />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Team Collaboration
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Work together seamlessly with real-time synchronized controls and AI-powered conflict resolution
+            </p>
+          </motion.div>
+
+          <CollaborationPreview />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
           <WorkflowComparison />
+        </div>
+      </section>
+
+      <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+              Performance Analytics
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              Real-time data from thousands of creative professionals worldwide
+            </p>
+          </motion.div>
+
+          <AnalyticsDashboard />
         </div>
       </section>
 

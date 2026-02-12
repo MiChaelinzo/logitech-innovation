@@ -38,14 +38,16 @@ type DemoState = {
 }
 
 const prompts = [
-  "Cinematic sunset over mountains",
-  "Abstract geometric patterns",
-  "Futuristic city skyline",
-  "Organic flowing textures",
-  "Vintage film grain overlay",
-  "Neon cyberpunk atmosphere",
-  "Ethereal fantasy landscape",
-  "Industrial metal textures"
+  "Cinematic sunset over mountains with warm golden hour lighting",
+  "Abstract geometric patterns with vibrant color gradients",
+  "Futuristic city skyline with holographic billboards",
+  "Organic flowing textures inspired by nature",
+  "Vintage film grain overlay with authentic 35mm feel",
+  "Neon cyberpunk atmosphere with rain-soaked streets",
+  "Ethereal fantasy landscape with magical particles",
+  "Industrial metal textures with realistic weathering",
+  "Dreamy bokeh background with soft focus",
+  "Dynamic energy waves with particle effects"
 ]
 
 const assets = [
@@ -56,7 +58,9 @@ const assets = [
   "📽️ Film Grain",
   "🌃 Neon Dreams",
   "✨ Fantasy Realm",
-  "⚙️ Metal Surface"
+  "⚙️ Metal Surface",
+  "💫 Bokeh Magic",
+  "⚡ Energy Flow"
 ]
 
 const qualitySettings = {
