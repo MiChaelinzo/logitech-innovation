@@ -13,11 +13,25 @@ A sophisticated marketing and demonstration platform showcasing an AI-powered pl
 ## Essential Features
 
 ### Enhanced Interactive Console Simulator
-- **Functionality**: Simulates the physical MX Creative Console with rotatable dials, real-time AI generation, advanced settings including quality presets (draft/standard/high), style selection (photorealistic/artistic/abstract/minimal), configuration saving/loading, and session statistics tracking
-- **Purpose**: Let users experience the full product capabilities without owning hardware with complete control over generation parameters and the ability to save favorite configurations
+- **Functionality**: Simulates the physical MX Creative Console with rotatable dials, real-time AI generation, advanced settings including quality presets (draft/standard/high), style selection (photorealistic/artistic/abstract/minimal), configuration saving/loading, and session statistics tracking. All interactions are tracked for personalized recommendations.
+- **Purpose**: Let users experience the full product capabilities without owning hardware with complete control over generation parameters and the ability to save favorite configurations. Build user behavior profile for AI-powered suggestions.
 - **Trigger**: User lands on demo section or clicks "Try Interactive Demo"
-- **Progression**: Adjust dial via slider or auto-play mode → Select quality and style presets → Click generate button → Watch AI creation animation → View generated asset with metadata → Save configuration for later → Share or download result
-- **Success criteria**: Users complete at least 3 generations, save a configuration, and spend 2+ minutes exploring different settings
+- **Progression**: Adjust dial via slider or auto-play mode → Select quality and style presets → Click generate button (tracked) → Watch AI creation animation → View generated asset with metadata → Save configuration for later → Share or download result → Receive personalized recommendations after 3+ interactions
+- **Success criteria**: Users complete at least 3 generations, save a configuration, spend 2+ minutes exploring different settings, and receive first AI recommendation
+
+### AI-Powered Personalized Recommendations
+- **Functionality**: Tracks all user interactions (demo usage, video views, preset browsing, app scenario exploration, ROI calculations, pricing views) and uses GPT-4o-mini to generate 3-4 contextual recommendations with reasons, priorities, and actionable CTAs. Smart card interface appears bottom-right after 3+ interactions with dismissible cards, smooth animations, and direct navigation to recommended sections.
+- **Purpose**: Guide users intelligently through their journey, increase engagement depth, surface relevant content based on behavior patterns, and accelerate conversion by showing the most relevant next steps at the perfect moment
+- **Trigger**: Automatically appears after user completes 3 or more tracked interactions across any sections
+- **Progression**: User explores site naturally → System tracks interactions silently → AI analyzes behavior patterns → Personalized card appears with 3-4 smart suggestions → User reads recommendations with context → Clicks CTA to navigate to suggested section → Can dismiss individual cards or entire panel → Recommendations update as behavior evolves
+- **Success criteria**: 60%+ click-through rate on recommendations, average 2+ recommendations acted upon per session, users who receive recommendations explore 40% more sections than those who don't
+
+### Interaction Activity Indicator
+- **Functionality**: Subtle bottom-left indicator showing AI is learning from user interactions with live count, pulse animation on new interactions, and brain icon
+- **Purpose**: Build trust in the AI system, provide transparency about data collection, create delight through responsive feedback
+- **Trigger**: Appears automatically after 3+ interactions
+- **Progression**: User interacts with site → Counter increments → Pulse animation plays → Message updates ("AI learning from X interactions")
+- **Success criteria**: Users notice the indicator and understand the personalization is active
 
 ### Live Hardware Visualization
 - **Functionality**: Real-time 3D-like visualization of the MX Creative Console showing animated dials, live value updates, active indicators, connection status, and simulated button interactions

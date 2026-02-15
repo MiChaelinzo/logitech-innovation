@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Sparkle, Lightning, Users, GitBranch, Cpu, PlayCircle, ArrowRight, Check, EnvelopeSimple, GithubLogo } from '@phosphor-icons/react'
 import { Button } from '@/components/ui/button'
@@ -28,10 +28,42 @@ import { AnalyticsDashboard } from '@/components/AnalyticsDashboard'
 import { BeforeAfterComparison } from '@/components/BeforeAfterComparison'
 import { CollaborationPreview } from '@/components/CollaborationPreview'
 import { FeatureHighlights } from '@/components/FeatureHighlights'
+import { PersonalizedRecommendations } from '@/components/PersonalizedRecommendations'
+import { InteractionIndicator } from '@/components/InteractionIndicator'
+import { useInteractionTracker } from '@/hooks/use-interaction-tracker'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const { trackInteraction } = useInteractionTracker()
+
+  useEffect(() => {
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+          const sectionId = entry.target.id
+          if (sectionId === 'demo') trackInteraction('demo', 'interactive-demo-view')
+          if (sectionId === 'videos') trackInteraction('video', 'video-showcase-view')
+          if (sectionId === 'community') trackInteraction('preset', 'community-presets-view')
+          if (sectionId === 'roi') trackInteraction('roi-calc', 'roi-calculator-view')
+          if (sectionId === 'pricing') trackInteraction('pricing', 'pricing-view')
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(observerCallback, {
+      threshold: 0.5,
+      rootMargin: '0px'
+    })
+
+    const sections = ['demo', 'videos', 'community', 'roi', 'pricing']
+    sections.forEach(id => {
+      const element = document.getElementById(id)
+      if (element) observer.observe(element)
+    })
+
+    return () => observer.disconnect()
+  }, [trackInteraction])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -117,6 +149,8 @@ function App() {
   return (
     <div className="min-h-screen text-foreground font-['Inter']">
       <Toaster />
+      <PersonalizedRecommendations />
+      <InteractionIndicator />
       <UserProfile />
       <QuickActions />
       <FeaturedBanner />
@@ -196,7 +230,10 @@ function App() {
               <Button 
                 size="lg" 
                 className="bg-gradient-to-r from-primary to-accent hover:opacity-90 transition-all hover:scale-105 text-lg px-8 py-6 font-semibold"
-                onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  trackInteraction('demo', 'hero-cta-demo')
+                  document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })
+                }}
               >
                 Try Interactive Demos
                 <PlayCircle className="ml-2" weight="bold" />
@@ -205,7 +242,10 @@ function App() {
                 size="lg" 
                 variant="outline" 
                 className="border-primary/50 hover:bg-primary/10 text-lg px-8 py-6"
-                onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  trackInteraction('roi-calc', 'hero-cta-roi')
+                  document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })
+                }}
               >
                 Calculate ROI
                 <ArrowRight className="ml-2" weight="bold" />
@@ -269,8 +309,9 @@ function App() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
+                onClick={() => trackInteraction('feature', `feature-${feature.title.toLowerCase().replace(/ /g, '-')}`)}
               >
-                <Card className="glass-effect border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] h-full group">
+                <Card className="glass-effect border-border/50 hover:border-primary/50 transition-all duration-300 hover:scale-[1.02] h-full group cursor-pointer">
                   <CardHeader>
                     <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                       <feature.icon size={28} weight="duotone" className="text-primary-foreground" />
@@ -554,7 +595,7 @@ function App() {
             </p>
           </motion.div>
 
-          <Tabs defaultValue={useCases[0].app} className="w-full">
+          <Tabs defaultValue={useCases[0].app} className="w-full" onValueChange={(value) => trackInteraction('app-scenario', `use-case-${value.toLowerCase().replace(/ /g, '-')}`)}>
             <TabsList className="grid w-full max-w-2xl mx-auto grid-cols-3 mb-12 h-auto p-2 bg-card/50 glass-effect">
               {useCases.map(useCase => (
                 <TabsTrigger 

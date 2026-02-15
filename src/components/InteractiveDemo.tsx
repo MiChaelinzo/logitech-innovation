@@ -25,6 +25,7 @@ import {
 } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
 import { toast } from 'sonner'
+import { useInteractionTracker } from '@/hooks/use-interaction-tracker'
 
 type DemoState = {
   dialValue: number
@@ -77,6 +78,7 @@ const stylePresets = {
 }
 
 export function InteractiveDemo() {
+  const { trackInteraction } = useInteractionTracker()
   const [savedConfigs, setSavedConfigs] = useKV<Array<{ name: string; config: DemoState }>>('demo-configs', [])
   const [demoState, setDemoState] = useState<DemoState>({
     dialValue: 50,
@@ -113,6 +115,7 @@ export function InteractiveDemo() {
   }, [demoState.dialValue])
 
   const handleGenerate = () => {
+    trackInteraction('demo', `generate-asset-${demoState.style}-${demoState.quality}`)
     setDemoState(prev => ({ ...prev, isGenerating: true }))
     setIsPlaying(false)
     
