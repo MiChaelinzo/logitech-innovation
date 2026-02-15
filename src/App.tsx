@@ -32,6 +32,13 @@ import { PersonalizedRecommendations } from '@/components/PersonalizedRecommenda
 import { InteractionIndicator } from '@/components/InteractionIndicator'
 import { useInteractionTracker } from '@/hooks/use-interaction-tracker'
 import { ChatSupport } from '@/components/ChatSupport'
+import { HackathonInfo } from '@/components/HackathonInfo'
+import { AdvancedSettings } from '@/components/AdvancedSettings'
+import { Leaderboard } from '@/components/Leaderboard'
+import { AICodeGenerator } from '@/components/AICodeGenerator'
+import { NewsUpdates } from '@/components/NewsUpdates'
+import { Interactive3DPreview } from '@/components/Interactive3DPreview'
+import { CollaborationNetwork } from '@/components/CollaborationNetwork'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -157,6 +164,7 @@ function App() {
       <QuickActions />
       <FeaturedBanner />
       <KeyboardShortcuts />
+      <AdvancedSettings />
       <div className="gradient-mesh fixed inset-0 -z-10" />
       
       <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -409,6 +417,18 @@ function App() {
           <WorkflowComparison />
         </div>
       </section>
+
+      <HackathonInfo />
+
+      <Interactive3DPreview />
+
+      <AICodeGenerator />
+
+      <Leaderboard />
+
+      <CollaborationNetwork />
+
+      <NewsUpdates />
 
       <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
         <div className="max-w-7xl mx-auto">

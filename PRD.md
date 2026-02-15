@@ -138,6 +138,48 @@ A sophisticated marketing and demonstration platform showcasing an AI-powered pl
 - **Progression**: Click chat icon → Chat panel slides in → View AI greeting with contextual suggestions → Type message or record voice → Upload files if needed → AI responds with helpful answers and suggestions → Voice commands trigger actions → Conversation persists across sessions → Close or minimize chat
 - **Success criteria**: 70%+ of chat interactions result in successful resolution, average 3+ messages per conversation, 40%+ of users try voice input, file uploads provide helpful context for 30%+ of technical questions
 
+### Hackathon Information Dashboard
+- **Functionality**: Comprehensive hackathon details including live countdown timer, judging criteria breakdown with weights, project highlights checklist, technical stack showcase, and submission status badge
+- **Purpose**: Clearly communicate the hackathon context, showcase project innovations, and demonstrate alignment with judging criteria
+- **Trigger**: Auto-displays as dedicated section after hero
+- **Progression**: View hackathon badge → Read project highlights → Review judging criteria → See technical stack → Watch countdown timer
+- **Success criteria**: Users understand this is a hackathon submission and see the technical innovations
+
+### Advanced Settings Panel
+- **Functionality**: Comprehensive settings interface with visual settings (animations, reduced motion, high contrast, particle effects, background effects, brightness), audio settings (sound effects, haptic feedback, volume), performance settings (auto-save, analytics tracking, AI quality presets), and import/export/reset capabilities
+- **Purpose**: Empower users to customize their experience for accessibility, performance, and preference
+- **Trigger**: Click floating settings gear icon (bottom-right)
+- **Progression**: Open settings panel → Adjust visual/audio/performance settings → Export/import settings JSON → Reset to defaults → Save changes
+- **Success criteria**: 30%+ of users access settings, accessibility features used by users who need them, settings persist across sessions
+
+### Community Leaderboard
+- **Functionality**: Global rankings across three categories (Top Creators, Most Active Users, Popular Presets) with rank badges (crown for #1, medals for #2-3), trend indicators (up/down/same), achievement badges, and daily updates
+- **Purpose**: Gamify engagement, recognize top contributors, and foster competitive community spirit
+- **Trigger**: Dedicated leaderboard section with tabbed categories
+- **Progression**: View leaderboard section → Switch between categories → See top 10 rankings → View badges and trends → Aspire to climb rankings
+- **Success criteria**: Users engage with leaderboard, recognize top contributors, motivated to increase activity
+
+### AI Code Generator
+- **Functionality**: AI-powered plugin code generator using GPT-4o that accepts natural language descriptions, supports TypeScript/JavaScript/Python, targets multiple frameworks (React/Vue/Vanilla/Electron), generates production-ready Logitech Actions SDK code with proper initialization, handlers, comments, and error handling, provides code explanations, offers copy/download capabilities, and includes example prompts
+- **Purpose**: Lower barrier to entry for developers, demonstrate SDK capabilities, accelerate development, and inspire plugin ideas
+- **Trigger**: Scroll to code generator section or nav link
+- **Progression**: Read description → Select language/framework → Enter prompt or use example → Click generate → AI creates code → Review code and explanation → Copy or download code → Implement in project
+- **Success criteria**: 50%+ of developers generate at least one code snippet, code quality is production-ready, users successfully implement generated code
+
+### Interactive 3D Hardware Preview
+- **Functionality**: Real-time Canvas 2D-based 3D console visualization with three animated dials, perspective rendering, interactive center dial controlled by slider, rotation animation with adjustable speed (0.1x-3x), pause/play controls, visual glow effects, shadow rendering, and reset functionality
+- **Purpose**: Provide tangible, visual understanding of physical hardware appearance and interaction model without requiring actual device
+- **Trigger**: Scroll to 3D preview section
+- **Progression**: View rotating 3D console → Observe dial animations → Adjust center dial with slider → Control rotation speed → Pause/play rotation → Reset to default view
+- **Success criteria**: Users interact with dial slider, understand hardware layout, spend 30+ seconds exploring visualization
+
+### News & Updates Feed
+- **Functionality**: Chronological feed of platform updates categorized as features, updates, community milestones, or achievements, with category badges, relative timestamps, hover effects, expandable "load more" functionality, and visual icons per category
+- **Purpose**: Keep users informed of latest developments, build excitement for new features, demonstrate active development
+- **Trigger**: Scroll to news section
+- **Progression**: View recent updates → Read titles and descriptions → Click to expand details → Load more updates → See update categories and dates
+- **Success criteria**: Users read at least 2 updates, understand platform is actively developed, return to check for new updates
+
 ## Edge Case Handling
 - **No Hardware Connection**: Demo works entirely in simulation mode without physical hardware
 - **Slow Network**: All animations and interactions work offline; only AI generation would show loading state

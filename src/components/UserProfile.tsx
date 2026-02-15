@@ -214,64 +214,67 @@ export function UserProfile() {
                   </div>
                 </CardHeader>
 
-                <CardContent className="space-y-6 pt-6 overflow-y-auto flex-1">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                      <Trophy className="text-primary" weight="duotone" />
-                      Statistics
-                    </h3>
-                    <div className="grid grid-cols-2 gap-4">
-                      <StatCard
-                        icon={Sparkle}
-                        label="Demos Completed"
-                        value={userStats?.demosCompleted || 0}
-                        color="text-primary"
-                      />
-                      <StatCard
-                        icon={Heart}
-                        label="Presets Saved"
-                        value={userStats?.presetsSaved || 0}
-                        color="text-accent"
-                      />
-                      <StatCard
-                        icon={Calculator}
-                        label="Calculations"
-                        value={userStats?.calculationsRun || 0}
-                        color="text-secondary"
-                      />
-                      <StatCard
-                        icon={FireSimple}
-                        label="Days Active"
-                        value={userStats?.daysActive || 0}
-                        color="text-orange-500"
-                      />
+                <CardContent className="space-y-6 pt-6 flex-1 min-h-0">
+                  <div className="overflow-y-auto h-full pr-2 space-y-6 custom-scrollbar"
+                    style={{ maxHeight: 'calc(100vh - 24rem)' }}>
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
+                        <Trophy className="text-primary" weight="duotone" />
+                        Statistics
+                      </h3>
+                      <div className="grid grid-cols-2 gap-4">
+                        <StatCard
+                          icon={Sparkle}
+                          label="Demos Completed"
+                          value={userStats?.demosCompleted || 0}
+                          color="text-primary"
+                        />
+                        <StatCard
+                          icon={Heart}
+                          label="Presets Saved"
+                          value={userStats?.presetsSaved || 0}
+                          color="text-accent"
+                        />
+                        <StatCard
+                          icon={Calculator}
+                          label="Calculations"
+                          value={userStats?.calculationsRun || 0}
+                          color="text-secondary"
+                        />
+                        <StatCard
+                          icon={FireSimple}
+                          label="Days Active"
+                          value={userStats?.daysActive || 0}
+                          color="text-orange-500"
+                        />
+                      </div>
                     </div>
-                  </div>
 
-                  <Separator />
+                    <Separator />
 
-                  <div>
-                    <h3 className="text-lg font-semibold mb-4 flex items-center justify-between">
-                      <span className="flex items-center gap-2">
-                        <Medal className="text-accent" weight="duotone" />
-                        Achievements
-                      </span>
-                      <Badge variant="outline">{unlockedCount}/{achievements?.length || 0}</Badge>
-                    </h3>
-                    <div className="space-y-3">
-                      {achievements?.map((achievement) => (
-                        <AchievementCard key={achievement.id} achievement={achievement} />
-                      ))}
+                    <div>
+                      <h3 className="text-lg font-semibold mb-4 flex items-center justify-between">
+                        <span className="flex items-center gap-2">
+                          <Medal className="text-accent" weight="duotone" />
+                          Achievements
+                        </span>
+                        <Badge variant="outline">{unlockedCount}/{achievements?.length || 0}</Badge>
+                      </h3>
+                      <div className="space-y-3">
+                        {achievements?.map((achievement) => (
+                          <AchievementCard key={achievement.id} achievement={achievement} />
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  <Button
-                    variant="outline"
-                    className="w-full"
-                    onClick={() => setShowProfile(false)}
-                  >
-                    Close
-                  </Button>
+                    <Button
+                      variant="outline"
+                      className="w-full"
+                      onClick={() => setShowProfile(false)}
+                    >
+                      Close
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             </motion.div>
