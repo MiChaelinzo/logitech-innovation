@@ -250,7 +250,7 @@ function App() {
                 }}
               >
                 Calculate ROI
-                <ArrowRight className="ml-2" weight="bold" />
+              </Button>
               </Button>
             </div>
           </motion.div>
