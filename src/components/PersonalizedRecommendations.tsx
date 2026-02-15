@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react'
 import { Sparkle, TrendUp, Lightbulb, ArrowRight, X, Target } from '@phosphor-icons/react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
-import { motion, AnimatePresence } from 'framer-motion'
-import { useKV } from '@github/spark/hooks'
+import { motion, AnimatePresence } from 'framer
 
-interface UserInteraction {
-  type: 'demo' | 'video' | 'preset' | 'app-scenario' | 'roi-calc' | 'pricing' | 'feature'
-  itemId: string
+  type: 'demo' | 'video' | 'preset' | 'app-scenario' | 
   timestamp: number
-  duration?: number
-}
 
 interface Recommendation {
+  title: string
+  reason: string
+  priority: 'high' 
+}
+e
+
+  const [isVisible, setIsV
   id: string
   title: string
   description: string
@@ -31,7 +31,7 @@ export function PersonalizedRecommendations() {
   const [dismissedIds, setDismissedIds] = useKV<string[]>('dismissed-recommendations', [])
 
   useEffect(() => {
-    if (interactions && interactions.length >= 3 && recommendations.length === 0 && !isGenerating) {
+    if (interactions.length >= 3 && recommendations.length === 0 && !isGenerating) {
       generateRecommendations()
     }
   }, [interactions])
@@ -40,10 +40,11 @@ export function PersonalizedRecommendations() {
     setIsGenerating(true)
     try {
       const interactionSummary = interactions
-        ? interactions.slice(-10).map(i => `${i.type}: ${i.itemId}`).join(', ')
-        : 'No interactions yet'
+        .slice(-10)
+        .map(i => `${i.type}: ${i.itemId}`)
+        .join(', ')
 
-      const promptText = `You are an AI assistant analyzing user behavior on the MotionFlow AI landing page.
+      const prompt = spark.llmPrompt`You are an AI assistant analyzing user behavior on the MotionFlow AI landing page.
 
 User interactions: ${interactionSummary}
 
@@ -62,71 +63,71 @@ Return a JSON object with a single property "recommendations" containing an arra
 - priority: "high", "medium", or "low" (string)
 - category: "feature", "use-case", "pricing", "community", or "demo" (string)
 
-Example format:
-{
-  "recommendations": [
-    {
-      "id": "rec-1",
-      "title": "Try the Blender 3D Demo",
-      "description": "Experience real-time 3D modeling controls with AI texture generation",
-      "reason": "You've shown interest in video editing tools, and many users transition to 3D workflows",
-      "action": "Explore Blender Demo",
-      "priority": "high",
-      "category": "demo"
-    }
-  ]
-}`
-
-      const response = await window.spark.llm(promptText, 'gpt-4o-mini', true)
-      const parsed = JSON.parse(response)
       
-      const newRecommendations = parsed.recommendations
-        .filter((rec: Recommendation) => !(dismissedIds || []).includes(rec.id))
-        .slice(0, 3)
+ 
       
-      setRecommendations(newRecommendations)
-      setIsVisible(newRecommendations.length > 0)
-    } catch (error) {
-      console.error('Failed to generate recommendations:', error)
-    } finally {
+     
+      console.error(
       setIsGenerating(false)
-    }
   }
-
   const dismissRecommendation = (id: string) => {
-    setRecommendations(prev => prev.filter(rec => rec.id !== id))
-    setDismissedIds(current => [...(current || []), id])
-    
-    if (recommendations.length <= 1) {
-      setIsVisible(false)
+    setDismissedIds(current => [...(cur
+    if (recommendations.l
     }
-  }
 
-  const handleAction = (rec: Recommendation) => {
-    const sectionMap: Record<string, string> = {
-      'demo': 'demo',
-      'use-case': 'features',
-      'pricing': 'pricing',
-      'community': 'community',
-      'feature': 'features'
+   
+  
+
     }
-    
-    const sectionId = sectionMap[rec.category] || 'features'
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' })
-    dismissRecommendation(rec.id)
-  }
+    const sectionId = sectionMap[rec.cate
+    di
 
-  const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'text-accent'
-      case 'medium': return 'text-primary'
-      case 'low': return 'text-secondary'
-      default: return 'text-muted-foreground'
-    }
+      case 'medium':
+      
   }
-
   const getPriorityIcon = (priority: string) => {
-    switch (priority) {
+      case 'high': re
+      case 'low': return Lightbulb
+    }
+
+    r
+
+
+      animate={{ opacity: 1, y: 0 }}
+      className="fixed bottom-8 right-8 z-40 max-w-md"
+      <Card className="glass-effect border-prima
+    
+              <div className="w-8 h-8 
+              </div>
+     
+   
+
+              onClick={() => setIsVisible(false)}
+            >
+            </Button>
+          <CardDescription cl
+          </CardDescription
+        <CardContent className=
+            {recommendation
+
+    
+                  initial={{ opacity: 0, x: 20 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  className="grou
+   
+
+                      onClick={() => dismissRecomm
+                    >
+                    </Button>
+                    <div className="flex i
+                      <div className="fle
+                        <Badge variant="outli
+     
+   
+
+                    </p>
+                    <p 
       case 'high': return Target
       case 'medium': return TrendUp
       case 'low': return Lightbulb
@@ -208,6 +209,52 @@ Example format:
                     </p>
                     
                     <p className="text-xs text-foreground/70 mb-3 italic">
+                      💡 {rec.reason}
+                    </p>
+                    
+                    <Button
+                      size="sm"
+                      onClick={() => handleAction(rec)}
+                      className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 h-8 text-xs"
+                    >
+                      {rec.action}
+                      <ArrowRight size={14} className="ml-1" weight="bold" />
+                    </Button>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </AnimatePresence>
+          
+          {isGenerating && (
+            <div className="text-center py-4">
+              <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
+                <div className="w-4 h-4 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+                Analyzing your interests...
+              </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
+  )
+}
+
+export function trackInteraction(type: UserInteraction['type'], itemId: string, duration?: number) {
+  const existingInteractions = JSON.parse(localStorage.getItem('user-interactions') || '[]')
+  
+  const newInteraction = {
+    type,
+    itemId,
+    timestamp: Date.now(),
+    duration
+  }
+  
+  const updatedInteractions = [...existingInteractions, newInteraction]
+  localStorage.setItem('user-interactions', JSON.stringify(updatedInteractions))
+  
+  window.dispatchEvent(new CustomEvent('interaction-tracked', { detail: newInteraction }))
+}
                       💡 {rec.reason}
                     </p>
                     
