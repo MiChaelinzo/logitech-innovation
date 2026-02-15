@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
-import { Card, CardContent, CardHeader
+import { motion } from 'framer-motion'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { 
-import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { 
   Trophy,
@@ -62,70 +62,70 @@ export function HackathonInfo() {
       description: 'Practical value and market potential',
       weight: '20%',
       icon: Rocket
-    '
-   
+    }
+  ]
 
-    'Interactive har
+  const features = [
+    'Interactive hardware simulation',
+    'Real-time AI generation demos',
+    'Live collaboration preview',
+    'ROI calculator with analytics',
+    'Video showcase gallery',
+    'Community preset marketplace'
+  ]
 
-    <section className="py-32 px-4 sm:px-6 lg
+  return (
+    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          whileInView={{ opacity: 1, y: 
-          transition={{ duration: 0.6 }}
-        >
-            Logitech Actions SDK Hack
-   
-
-          
-        </motion.div>
-        <div className="grid lg:grid-cols
-            initial
-            viewport={{ once: true }}
-          >
-              <CardHeader>
-                  <div className="p-3 ro
-                  </div>
-         
-                  </div>
-              </CardHeader>
-                {f
-                    key={feature}
-                    whileInView=
-               
-                  >
-                    <span className="text-sm">{feature}</span>
-              
-            </Card>
-
-            initial={{ opacity: 0, x: 20 }}
-            viewport=
-          >
-              <CardHeader>
-                  <div className="p-3
-                  </div>
-           
-                  </div>
-              </CardHeader
-                {criteria.map((criterion, index) => {
-                  return (
-                      key={criterion.title}
-                      wh
-                      t
-                    >
-                        <div className="flex items-center gap-3">
-                        
-                      
-                      <p cl
-                  )
-              </CardContent>
-          </motion.div>
-
           initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
         >
-            <CardContent className="p-8">
-                <div>
-                   
-                      Technical Stack
+          <Badge className="mb-6 px-6 py-2 text-base bg-accent/20 text-accent border-accent/30" variant="outline">
+            <Trophy className="mr-2" size={20} weight="duotone" />
+            Logitech Actions SDK Hackathon 2024
+          </Badge>
+          <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+            Competition Entry
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            This project showcases innovative integration of the Logitech Actions SDK with AI-powered workflows
+          </p>
+        </motion.div>
+
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <Card className="glass-effect border-border/50 h-full">
+              <CardHeader>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-accent">
+                    <Rocket size={28} weight="duotone" className="text-primary-foreground" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-2xl">Key Features</CardTitle>
+                    <CardDescription>What makes this stand out</CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent className="space-y-2">
+                {features.map((feature, index) => (
+                  <motion.div
+                    key={feature}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors"
+                  >
+                    <Check className="text-primary" size={20} weight="bold" />
                     <span className="text-sm">{feature}</span>
                   </motion.div>
                 ))}
@@ -193,78 +193,6 @@ export function HackathonInfo() {
                     <GitBranch className="text-primary" size={32} weight="duotone" />
                     <h3 className="font-['Space_Grotesk'] font-semibold text-2xl">
                       Technical Stack
-                    </h3>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex flex-wrap gap-2">
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">Logitech Actions SDK</Badge>
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">React + TypeScript</Badge>
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">OpenAI GPT-4</Badge>
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">Framer Motion</Badge>
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">Shadcn UI</Badge>
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">Tailwind CSS</Badge>
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">Three.js</Badge>
-                      <Badge variant="outline" className="bg-primary/10 border-primary/30">D3.js</Badge>
-                    </div>
-                  </div>
-                  <Separator className="my-6" />
-                  <div className="space-y-3 text-sm">
-                    <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
-                      <span>Full SDK Integration with Actions Ring support</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
-                      <span>AI-powered features using OpenAI API</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
-                      <span>Persistent state with KV storage</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
-                      <span>Real-time collaboration simulation</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="text-center">
-                  <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
-                    <Calendar className="mx-auto mb-4 text-primary" size={48} weight="duotone" />
-                    <h4 className="font-['Space_Grotesk'] font-semibold text-xl mb-2">
-                      Submission Status
-                    </h4>
-                    <Badge className="mb-6 bg-green-500/20 text-green-400 border-green-500/30">
-                      Active Submission
-                    </Badge>
-                    <div className="grid grid-cols-4 gap-4 mt-6">
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-primary">{timeLeft.days}</div>
-                        <div className="text-xs text-muted-foreground mt-1">Days</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-primary">{timeLeft.hours}</div>
-                        <div className="text-xs text-muted-foreground mt-1">Hours</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-primary">{timeLeft.minutes}</div>
-                        <div className="text-xs text-muted-foreground mt-1">Mins</div>
-                      </div>
-                      <div className="text-center">
-                        <div className="text-3xl font-bold text-primary">{timeLeft.seconds}</div>
-                        <div className="text-xs text-muted-foreground mt-1">Secs</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-    </section>
-  )
-}
                     </h3>
                   </div>
                   <div className="space-y-2">
