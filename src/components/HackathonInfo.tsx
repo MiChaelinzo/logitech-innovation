@@ -1,131 +1,131 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardHeader
+import { Badge } from '@/components/ui/badge'
+import { 
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { 
   Trophy,
-  Code,
+  Rocke
   Users,
-  Lightbulb,
-  GitBranch,
-  Rocket,
-  Calendar,
-  Clock,
   Check,
-  Star
-} from '@phosphor-icons/react'
+  GitBranch,
 
-export function HackathonInfo() {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
+  Calendar,
 
-  useEffect(() => {
-    const targetDate = new Date('2024-12-31T23:59:59').getTime()
-    
-    const interval = setInterval(() => {
-      const now = new Date().getTime()
-      const distance = targetDate - now
-
-      setTimeLeft({
-        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((distance % (1000 * 60)) / 1000)
+  Check,
+      
       })
-    }, 1000)
 
-    return () => clearInterval(interval)
   }, [])
-
   const criteria = [
-    {
-      title: 'Innovation & Creativity',
-      description: 'Novel use of Logitech Actions SDK with AI integration',
-      weight: '30%',
-      icon: Lightbulb
+
+      weight: '30%'
     },
-    {
-      title: 'Technical Implementation',
-      description: 'Code quality, SDK integration, and AI capabilities',
+    
       weight: '25%',
-      icon: Code
     },
-    {
       title: 'User Experience',
-      description: 'Intuitive design, responsiveness, and accessibility',
-      weight: '25%',
-      icon: Users
+
     },
-    {
       title: 'Real-World Impact',
-      description: 'Practical value and market potential',
+      weight: '20%',
+    }
+
+    'Int
+    'Live co
+
+  ]
+  return
+
+          initial={{
+     
+          className="text-center mb-16"
+          <Badge className="mb-6 px-6 py-2 text-base bg-accent/20 text-acce
+            Logitech
+          <h2 classNa
+      
+     
+        </motion.div>
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+            initial=
+            view
+      
+     
+                  <div classNam
+                  </div>
+                    
+                 
+      
+     
+                    key={feature}
+                    whileInView={{ opacity: 1, x: 0 }}
       weight: '20%',
       icon: Rocket
-    }
-  ]
+     
+   
 
-  const features = [
-    'Interactive hardware simulation',
-    'Real-time AI generation demos',
-    'Live collaboration preview',
-    'ROI calculator with analytics',
-    'Video showcase gallery',
-    'Community preset marketplace'
-  ]
 
-  return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
+            initial={{ opacity: 0, x: 
+            viewport={{ once: true }
+          >
+              <CardHeader>
+                  <div classN
+                  </div>
+   
+
+          
+                {criteria.map((criterion, index) => {
+                  return (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+                      whileInView={{ opac
+                      transition={{ duration
+                    >
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+                          <h4 className
         >
-          <Badge className="mb-6 px-6 py-2 text-base bg-accent/20 text-accent border-accent/30" variant="outline">
-            <Trophy className="mr-2" size={20} weight="duotone" />
-            Logitech Actions SDK Hackathon 2024
-          </Badge>
-          <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
-            Competition Entry
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            This project showcases innovative integration of the Logitech Actions SDK with AI-powered workflows
-          </p>
+                      <p className="text-sm text-muted-foreground ml-9">{criterion.description}</p>
+                  )
+              </CardContent>
+          </motion
+
+          initial={{ opacity:
+          viewp
+        >
+            <CardContent className="p-8">
+              
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+                  </div>
+                    <
+                      <Badge variant="outlin
+                      <Badge variant="outline"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+                      <Badge variant="outl
           >
-            <Card className="glass-effect border-border/50 h-full">
+                  <div className="space-y-3 text-sm">
               <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-accent">
-                    <Rocket size={28} weight="duotone" className="text-primary-foreground" />
+                    </div>
+                      <Check className="text-primary" size={16} weight="bold" />
+                    </div>
                   </div>
-                  <div>
-                    <CardTitle className="text-2xl">Key Features</CardTitle>
-                    <CardDescription>What makes this stand out</CardDescription>
+                    </d
+                      <Check className="text-primary" size={16} weight="bold
+                    </div>
                   </div>
-                </div>
+                <div c
               </CardHeader>
-              <CardContent className="space-y-2">
-                {features.map((feature, index) => (
-                  <motion.div
+                      Submission Status
+                    <Badge className="mb-6 bg-green
+                    </Badge>
                     key={feature}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="flex items-center gap-3 p-3 rounded-lg bg-muted/30 hover:bg-muted/50 transition-colors"
+                        <div className="text-xs text
+                      <div className="text-center">
+                        <div className="text-
+                      <div className="text-center">
+                        <div className="text-xs text-muted-foreground mt-1">Mins</div>
                   >
-                    <Check className="text-primary" size={20} weight="bold" />
+                        <div className="text-xs text-muted-foreground mt-1">Se
                     <span className="text-sm">{feature}</span>
                   </motion.div>
                 ))}
@@ -149,7 +149,7 @@ export function HackathonInfo() {
                     <CardTitle className="text-2xl">Judging Criteria</CardTitle>
                     <CardDescription>How this project excels</CardDescription>
                   </div>
-                </div>
+
               </CardHeader>
               <CardContent className="space-y-4">
                 {criteria.map((criterion, index) => {
@@ -208,41 +208,41 @@ export function HackathonInfo() {
                     </div>
                   </div>
                   <Separator className="my-6" />
-                  <div className="space-y-3 text-sm">
+
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Full SDK Integration with Actions Ring support</span>
-                    </div>
+
                     <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
+
                       <span>AI-powered features using OpenAI API</span>
-                    </div>
+
                     <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
+
                       <span>Persistent state with KV storage</span>
-                    </div>
+
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Real-time collaboration simulation</span>
                     </div>
                   </div>
-                </div>
+
                 
                 <div className="text-center">
                   <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
                     <Calendar className="mx-auto mb-4 text-primary" size={48} weight="duotone" />
                     <h4 className="font-['Space_Grotesk'] font-semibold text-xl mb-2">
-                      Submission Status
+
                     </h4>
                     <Badge className="mb-6 bg-green-500/20 text-green-400 border-green-500/30">
                       Active Submission
-                    </Badge>
+
                     <div className="grid grid-cols-4 gap-4 mt-6">
-                      <div className="text-center">
+
                         <div className="text-3xl font-bold text-primary">{timeLeft.days}</div>
                         <div className="text-xs text-muted-foreground mt-1">Days</div>
                       </div>
-                      <div className="text-center">
+
                         <div className="text-3xl font-bold text-primary">{timeLeft.hours}</div>
                         <div className="text-xs text-muted-foreground mt-1">Hours</div>
                       </div>
@@ -252,16 +252,16 @@ export function HackathonInfo() {
                       </div>
                       <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.seconds}</div>
-                        <div className="text-xs text-muted-foreground mt-1">Secs</div>
+
                       </div>
                     </div>
                   </div>
-                </div>
+
               </div>
-            </CardContent>
+
           </Card>
-        </motion.div>
+
       </div>
-    </section>
+
   )
-}
+
