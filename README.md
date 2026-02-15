@@ -1,4 +1,4 @@
-# ✨ MotionFlow AI - Logitech Actions SDK Innovation
+# 🎛️✨ MotionFlow AI - Actions SDK Innovation
 
 A sophisticated, fully-interactive marketing and demonstration platform showcasing an AI-powered plugin for the Logitech MX Creative Console. This application demonstrates how AI intelligence meets physical hardware controls to revolutionize creative workflows.
 
