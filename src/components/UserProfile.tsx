@@ -183,8 +183,8 @@ export function UserProfile() {
               onClick={(e) => e.stopPropagation()}
               className="w-full max-w-md"
             >
-              <Card className="glass-effect border-border/50 overflow-hidden">
-                <CardHeader className="relative pb-16 bg-gradient-to-br from-primary/20 to-accent/20">
+              <Card className="glass-effect border-border/50 overflow-hidden flex flex-col max-h-[calc(100vh-8rem)]">
+                <CardHeader className="relative pb-16 bg-gradient-to-br from-primary/20 to-accent/20 flex-shrink-0">
                   <div className="flex items-start justify-between">
                     <div className="flex items-center gap-4">
                       <Avatar className="w-16 h-16 border-4 border-card">
@@ -214,7 +214,7 @@ export function UserProfile() {
                   </div>
                 </CardHeader>
 
-                <CardContent className="space-y-6 pt-6">
+                <CardContent className="space-y-6 pt-6 overflow-y-auto flex-1">
                   <div>
                     <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
                       <Trophy className="text-primary" weight="duotone" />
@@ -258,7 +258,7 @@ export function UserProfile() {
                       </span>
                       <Badge variant="outline">{unlockedCount}/{achievements?.length || 0}</Badge>
                     </h3>
-                    <div className="space-y-3 max-h-64 overflow-y-auto">
+                    <div className="space-y-3">
                       {achievements?.map((achievement) => (
                         <AchievementCard key={achievement.id} achievement={achievement} />
                       ))}
