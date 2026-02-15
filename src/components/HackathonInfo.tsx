@@ -1,131 +1,130 @@
 import { useState, useEffect } from 'react'
-import { Card, CardContent, CardHeader
-import { Badge } from '@/components/ui/badge'
-import { 
+import { motion } from 'framer-motion'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { 
   Trophy,
-  Rocke
+  Rocket,
   Users,
+  Sparkle,
   Check,
   GitBranch,
+  Star,
+  Calendar
+} from '@phosphor-icons/react'
 
-  Calendar,
+export function HackathonInfo() {
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
-  Check,
-      
-      })
-
-  }, [])
-  const criteria = [
-
-      weight: '30%'
-    },
+  useEffect(() => {
+    const deadline = new Date('2024-12-31T23:59:59')
     
-      weight: '25%',
-    },
-      title: 'User Experience',
-
-    },
-      title: 'Real-World Impact',
-      weight: '20%',
+    const updateTimer = () => {
+      const now = new Date()
+      const diff = deadline.getTime() - now.getTime()
+      
+      if (diff > 0) {
+        setTimeLeft({
+          days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((diff % (1000 * 60)) / 1000)
+        })
+      }
     }
+    
+    updateTimer()
+    const interval = setInterval(updateTimer, 1000)
+    
+    return () => clearInterval(interval)
+  }, [])
 
-    'Int
-    'Live co
-
-  ]
-  return
-
-          initial={{
-     
-          className="text-center mb-16"
-          <Badge className="mb-6 px-6 py-2 text-base bg-accent/20 text-acce
-            Logitech
-          <h2 classNa
-      
-     
-        </motion.div>
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-            initial=
-            view
-      
-     
-                  <div classNam
-                  </div>
-                    
-                 
-      
-     
-                    key={feature}
-                    whileInView={{ opacity: 1, x: 0 }}
-      weight: '20%',
+  const criteria = [
+    {
+      title: 'Innovation',
+      description: 'Novel use of Actions SDK and creative AI integration',
+      weight: '30%',
+      icon: Sparkle
+    },
+    {
+      title: 'Technical Excellence',
+      description: 'Code quality, SDK implementation, and architecture',
+      weight: '25%',
       icon: Rocket
-     
-   
+    },
+    {
+      title: 'User Experience',
+      description: 'Interface design, usability, and workflow improvement',
+      weight: '25%',
+      icon: Users
+    },
+    {
+      title: 'Real-World Impact',
+      description: 'Practical value and potential for creative professionals',
+      weight: '20%',
+      icon: Trophy
+    }
+  ]
 
+  const features = [
+    'Intelligent dial mapping for every creative app',
+    'AI-powered asset generation via physical controls',
+    'Context-aware automation and workflow optimization',
+    'Community preset sharing and collaboration'
+  ]
 
-            initial={{ opacity: 0, x: 
-            viewport={{ once: true }
-          >
-              <CardHeader>
-                  <div classN
-                  </div>
-   
-
-          
-                {criteria.map((criterion, index) => {
-                  return (
+  return (
+    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-                      whileInView={{ opac
-                      transition={{ duration
-                    >
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-                          <h4 className
+          className="text-center mb-16"
         >
-                      <p className="text-sm text-muted-foreground ml-9">{criterion.description}</p>
-                  )
-              </CardContent>
-          </motion
-
-          initial={{ opacity:
-          viewp
-        >
-            <CardContent className="p-8">
-              
+          <Badge className="mb-6 px-6 py-2 text-base bg-accent/20 text-accent border-accent/30" variant="outline">
+            Logitech Actions SDK Hackathon 2024
+          </Badge>
+          <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+            Competition Entry
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            MotionFlow AI is our innovative submission that reimagines creative workflows through intelligent physical controls
+          </p>
         </motion.div>
 
-                  </div>
-                    <
-                      <Badge variant="outlin
-                      <Badge variant="outline"
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-                      <Badge variant="outl
+            transition={{ duration: 0.6 }}
           >
-                  <div className="space-y-3 text-sm">
+            <Card className="glass-effect border-border/50 h-full">
               <CardHeader>
-                    </div>
-                      <Check className="text-primary" size={16} weight="bold" />
-                    </div>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-secondary">
+                    <Trophy size={28} weight="duotone" className="text-primary-foreground" />
                   </div>
-                    </d
-                      <Check className="text-primary" size={16} weight="bold
-                    </div>
+                  <div>
+                    <CardTitle className="text-2xl">Why MotionFlow AI?</CardTitle>
+                    <CardDescription>Innovation meets practicality</CardDescription>
                   </div>
-                <div c
+                </div>
               </CardHeader>
-                      Submission Status
-                    <Badge className="mb-6 bg-green
-                    </Badge>
+              <CardContent className="space-y-3">
+                {features.map((feature, index) => (
+                  <motion.div
                     key={feature}
-                        <div className="text-xs text
-                      <div className="text-center">
-                        <div className="text-
-                      <div className="text-center">
-                        <div className="text-xs text-muted-foreground mt-1">Mins</div>
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/40 transition-colors"
                   >
-                        <div className="text-xs text-muted-foreground mt-1">Se
+                    <Check className="text-primary mt-0.5 flex-shrink-0" size={20} weight="bold" />
                     <span className="text-sm">{feature}</span>
                   </motion.div>
                 ))}
@@ -149,7 +148,7 @@ import {
                     <CardTitle className="text-2xl">Judging Criteria</CardTitle>
                     <CardDescription>How this project excels</CardDescription>
                   </div>
-
+                </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 {criteria.map((criterion, index) => {
@@ -208,41 +207,41 @@ import {
                     </div>
                   </div>
                   <Separator className="my-6" />
-
+                  <div className="space-y-3 text-sm">
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Full SDK Integration with Actions Ring support</span>
-
+                    </div>
                     <div className="flex items-center gap-2">
-
+                      <Check className="text-primary" size={16} weight="bold" />
                       <span>AI-powered features using OpenAI API</span>
-
+                    </div>
                     <div className="flex items-center gap-2">
-
+                      <Check className="text-primary" size={16} weight="bold" />
                       <span>Persistent state with KV storage</span>
-
+                    </div>
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Real-time collaboration simulation</span>
                     </div>
                   </div>
-
+                </div>
                 
                 <div className="text-center">
                   <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
                     <Calendar className="mx-auto mb-4 text-primary" size={48} weight="duotone" />
                     <h4 className="font-['Space_Grotesk'] font-semibold text-xl mb-2">
-
+                      Submission Status
                     </h4>
                     <Badge className="mb-6 bg-green-500/20 text-green-400 border-green-500/30">
                       Active Submission
-
+                    </Badge>
                     <div className="grid grid-cols-4 gap-4 mt-6">
-
+                      <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.days}</div>
                         <div className="text-xs text-muted-foreground mt-1">Days</div>
                       </div>
-
+                      <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.hours}</div>
                         <div className="text-xs text-muted-foreground mt-1">Hours</div>
                       </div>
@@ -252,16 +251,16 @@ import {
                       </div>
                       <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.seconds}</div>
-
+                        <div className="text-xs text-muted-foreground mt-1">Secs</div>
                       </div>
                     </div>
                   </div>
-
+                </div>
               </div>
-
+            </CardContent>
           </Card>
-
+        </motion.div>
       </div>
-
+    </section>
   )
-
+}
