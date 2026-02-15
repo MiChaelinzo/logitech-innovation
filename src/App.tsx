@@ -31,6 +31,7 @@ import { FeatureHighlights } from '@/components/FeatureHighlights'
 import { PersonalizedRecommendations } from '@/components/PersonalizedRecommendations'
 import { InteractionIndicator } from '@/components/InteractionIndicator'
 import { useInteractionTracker } from '@/hooks/use-interaction-tracker'
+import { ChatSupport } from '@/components/ChatSupport'
 
 function App() {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' })
@@ -149,6 +150,7 @@ function App() {
   return (
     <div className="min-h-screen text-foreground font-['Inter']">
       <Toaster />
+      <ChatSupport />
       <PersonalizedRecommendations />
       <InteractionIndicator />
       <UserProfile />

@@ -131,6 +131,13 @@ A sophisticated marketing and demonstration platform showcasing an AI-powered pl
 - **Progression**: View announcement → Read details → Click CTA or dismiss → See next announcement
 - **Success criteria**: Users engage with announcements and click CTAs
 
+### AI-Powered Chat Support
+- **Functionality**: Full-featured chat interface with AI assistant powered by GPT-4o that provides intelligent product support, contextual suggestions based on current page/section, file uploads (documents, images, videos with preview), voice input via speech-to-text, voice commands for navigation and actions, conversation history persistence, typing indicators, and smart quick replies
+- **Purpose**: Provide instant, intelligent support to guide users through the platform, answer product questions, help with demos, analyze uploaded files, and enable hands-free interaction through voice
+- **Trigger**: Click floating chat button (bottom-right), keyboard shortcut (C), or voice command "open chat"
+- **Progression**: Click chat icon → Chat panel slides in → View AI greeting with contextual suggestions → Type message or record voice → Upload files if needed → AI responds with helpful answers and suggestions → Voice commands trigger actions → Conversation persists across sessions → Close or minimize chat
+- **Success criteria**: 70%+ of chat interactions result in successful resolution, average 3+ messages per conversation, 40%+ of users try voice input, file uploads provide helpful context for 30%+ of technical questions
+
 ## Edge Case Handling
 - **No Hardware Connection**: Demo works entirely in simulation mode without physical hardware
 - **Slow Network**: All animations and interactions work offline; only AI generation would show loading state
@@ -138,6 +145,10 @@ A sophisticated marketing and demonstration platform showcasing an AI-powered pl
 - **Browser Compatibility**: Graceful fallback for older browsers; core features remain accessible
 - **Repeated Actions**: System handles rapid-fire generation requests by queuing them
 - **Invalid Inputs**: Calculator and forms validate inputs and show helpful error messages
+- **Chat File Size Limits**: Files over 10MB show error; images preview in chat; videos show thumbnail
+- **Voice Input Errors**: Falls back to text input if microphone unavailable or permission denied
+- **Offline Chat**: Shows connection status; queues messages to send when back online
+- **Long Conversations**: Older messages collapse into expandable history to maintain performance
 
 ## Design Direction
 
