@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
-import { motion } from 'framer-motion'
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
+import { Card, CardContent, CardHeader
 import { Separator } from '@/components/ui/separator'
-import { 
   Trophy,
-  Rocket,
+  Users,
+  Check,
+  Star,
+} from '@
   Users,
   Sparkle,
   Check,
@@ -19,7 +19,7 @@ export function HackathonInfo() {
 
   useEffect(() => {
     const deadline = new Date('2024-12-31T23:59:59')
-    
+  co
     const updateTimer = () => {
       const now = new Date()
       const diff = deadline.getTime() - now.getTime()
@@ -30,101 +30,101 @@ export function HackathonInfo() {
           hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((diff % (1000 * 60)) / 1000)
-        })
-      }
+      weig
     }
+
     
-    updateTimer()
-    const interval = setInterval(updateTimer, 1000)
-    
-    return () => clearInterval(interval)
-  }, [])
-
-  const criteria = [
-    {
-      title: 'Innovation',
-      description: 'Novel use of Actions SDK and creative AI integration',
-      weight: '30%',
-      icon: Sparkle
-    },
-    {
-      title: 'Technical Excellence',
-      description: 'Code quality, SDK implementation, and architecture',
-      weight: '25%',
-      icon: Rocket
-    },
-    {
-      title: 'User Experience',
-      description: 'Interface design, usability, and workflow improvement',
-      weight: '25%',
-      icon: Users
-    },
-    {
-      title: 'Real-World Impact',
-      description: 'Practical value and potential for creative professionals',
-      weight: '20%',
-      icon: Trophy
-    }
+    'Context-awar
   ]
+  re
+      <div className="max-w-7xl mx-auto"
+        
 
-  const features = [
-    'Intelligent dial mapping for every creative app',
-    'AI-powered asset generation via physical controls',
-    'Context-aware automation and workflow optimization',
-    'Community preset sharing and collaboration'
-  ]
-
-  return (
-    <section className="py-32 px-4 sm:px-6 lg:px-8 relative">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <Badge className="mb-6 px-6 py-2 text-base bg-accent/20 text-accent border-accent/30" variant="outline">
-            Logitech Actions SDK Hackathon 2024
+          className=
+     
           </Badge>
-          <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
             Competition Entry
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            MotionFlow AI is our innovative submission that reimagines creative workflows through intelligent physical controls
+          <p classNa
           </p>
+
+     
+            whileInView={{ opacity: 
+            transition={{ duration: 0.6 }}
+            <Card cl
+                <d
+      
+     
+                    <CardDescri
+                </div>
+              <CardC
+                 
+      
+     
+                    className="fl
+                    <Check className="text-primary mt-0.5 flex-shrink-0" size=
+                  </
+              </Ca
+     
+   
+
+            transiti
+            <Card className="glass-effect border-borde
+                <div className="flex items-center gap-3 
+                    <Star size={28} weight="duotone" clas
+                  <div>
+   
+
+          
+                  const Icon = criterion.icon
+                    <motion.div
+                   
+                      viewport={{ once: t
+                      className="p-4 rounded
+                      <div classNam
+                          <Icon classNam
+                        </div>
+         
+                    </motion.div>
+                })}
+            </Card
+        </div>
+        <motion.div
+          while
+          transition={{ duration: 0.6, delay: 0.2 }}
+          <Card className="glass-effect border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5">
+              
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-8">
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+                    </h3>
+                  <di
+                      <Badge variant="outlin
+                      <Badge variant="outline"
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+                      <Badge variant="outl
           >
-            <Card className="glass-effect border-border/50 h-full">
+                  <Separator className="my-6" />
               <CardHeader>
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-secondary">
-                    <Trophy size={28} weight="duotone" className="text-primary-foreground" />
+                      <span>Full SDK Integration with Actions 
+                    <div className="flex items-center gap-2">
+                      <span>AI-powered features using OpenAI API</span>
                   </div>
-                  <div>
-                    <CardTitle className="text-2xl">Why MotionFlow AI?</CardTitle>
-                    <CardDescription>Innovation meets practicality</CardDescription>
+                      <
+                    <div className="flex items-center gap-2">
+                      <span>Real-time collaboration simulation</span>
                   </div>
-                </div>
+                
               </CardHeader>
-              <CardContent className="space-y-3">
-                {features.map((feature, index) => (
-                  <motion.div
+                    <h4 className="font-['Space_G
+                    </h4>
+                      Active 
                     key={feature}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="flex items-start gap-3 p-3 rounded-lg bg-muted/20 hover:bg-muted/40 transition-colors"
+                        <div className="text-3xl fon
+                      </div>
+                        <div className="text-
+                      </div>
+                        <div className="text-3xl font-bold text-primary">{timeLeft.minutes}</div>
                   >
-                    <Check className="text-primary mt-0.5 flex-shrink-0" size={20} weight="bold" />
+                        <div className="text-3xl font-bold text-primary">{timeLeft.seconds}</div>
                     <span className="text-sm">{feature}</span>
                   </motion.div>
                 ))}
@@ -143,12 +143,12 @@ export function HackathonInfo() {
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-accent to-secondary">
                     <Star size={28} weight="duotone" className="text-primary-foreground" />
-                  </div>
+
                   <div>
                     <CardTitle className="text-2xl">Judging Criteria</CardTitle>
                     <CardDescription>How this project excels</CardDescription>
                   </div>
-                </div>
+
               </CardHeader>
               <CardContent className="space-y-4">
                 {criteria.map((criterion, index) => {
@@ -207,41 +207,41 @@ export function HackathonInfo() {
                     </div>
                   </div>
                   <Separator className="my-6" />
-                  <div className="space-y-3 text-sm">
+
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Full SDK Integration with Actions Ring support</span>
-                    </div>
+
                     <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
+
                       <span>AI-powered features using OpenAI API</span>
-                    </div>
+
                     <div className="flex items-center gap-2">
-                      <Check className="text-primary" size={16} weight="bold" />
+
                       <span>Persistent state with KV storage</span>
-                    </div>
+
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Real-time collaboration simulation</span>
                     </div>
                   </div>
-                </div>
+
                 
                 <div className="text-center">
                   <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
                     <Calendar className="mx-auto mb-4 text-primary" size={48} weight="duotone" />
                     <h4 className="font-['Space_Grotesk'] font-semibold text-xl mb-2">
-                      Submission Status
+
                     </h4>
                     <Badge className="mb-6 bg-green-500/20 text-green-400 border-green-500/30">
                       Active Submission
-                    </Badge>
+
                     <div className="grid grid-cols-4 gap-4 mt-6">
-                      <div className="text-center">
+
                         <div className="text-3xl font-bold text-primary">{timeLeft.days}</div>
                         <div className="text-xs text-muted-foreground mt-1">Days</div>
                       </div>
-                      <div className="text-center">
+
                         <div className="text-3xl font-bold text-primary">{timeLeft.hours}</div>
                         <div className="text-xs text-muted-foreground mt-1">Hours</div>
                       </div>
@@ -251,16 +251,16 @@ export function HackathonInfo() {
                       </div>
                       <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.seconds}</div>
-                        <div className="text-xs text-muted-foreground mt-1">Secs</div>
+
                       </div>
                     </div>
                   </div>
-                </div>
+
               </div>
-            </CardContent>
+
           </Card>
-        </motion.div>
+
       </div>
-    </section>
+
   )
-}
+
