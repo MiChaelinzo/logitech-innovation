@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react'
-import { Card, CardContent, CardHeader
+import { motion } from 'framer-motion'
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
+import {
   Trophy,
   Users,
   Check,
   Star,
-} from '@
-  Users,
-  Sparkle,
-  Check,
   GitBranch,
-  Star,
-  Calendar
+  Calendar,
+  Sparkle,
+  Lightning,
+  Cpu
 } from '@phosphor-icons/react'
 
 export function HackathonInfo() {
@@ -19,7 +20,7 @@ export function HackathonInfo() {
 
   useEffect(() => {
     const deadline = new Date('2024-12-31T23:59:59')
-  co
+    
     const updateTimer = () => {
       const now = new Date()
       const diff = deadline.getTime() - now.getTime()
@@ -30,104 +31,104 @@ export function HackathonInfo() {
           hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
           minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((diff % (1000 * 60)) / 1000)
-      weig
+        })
+      }
     }
 
-    
-    'Context-awar
+    updateTimer()
+    const interval = setInterval(updateTimer, 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const criteria = [
+    {
+      icon: Sparkle,
+      title: 'Innovation',
+      weight: '30%',
+      description: 'AI-powered physical controls with context-aware automation'
+    },
+    {
+      icon: Users,
+      title: 'Practical Value',
+      weight: '25%',
+      description: 'Solves real workflow challenges for creative professionals'
+    },
+    {
+      icon: Lightning,
+      title: 'SDK Integration',
+      weight: '25%',
+      description: 'Deep integration with Logitech Actions SDK and MX devices'
+    },
+    {
+      icon: Cpu,
+      title: 'Implementation Quality',
+      weight: '20%',
+      description: 'Professional code quality, UX design, and performance'
+    }
   ]
-  re
-      <div className="max-w-7xl mx-auto"
-        
 
-          className=
-     
-          </Badge>
-            Competition Entry
-          <p classNa
-          </p>
-
-     
-            whileInView={{ opacity: 
-            transition={{ duration: 0.6 }}
-            <Card cl
-                <d
-      
-     
-                    <CardDescri
-                </div>
-              <CardC
-                 
-      
-     
-                    className="fl
-                    <Check className="text-primary mt-0.5 flex-shrink-0" size=
-                  </
-              </Ca
-     
-   
-
-            transiti
-            <Card className="glass-effect border-borde
-                <div className="flex items-center gap-3 
-                    <Star size={28} weight="duotone" clas
-                  <div>
-   
-
-          
-                  const Icon = criterion.icon
-                    <motion.div
-                   
-                      viewport={{ once: t
-                      className="p-4 rounded
-                      <div classNam
-                          <Icon classNam
-                        </div>
-         
-                    </motion.div>
-                })}
-            </Card
-        </div>
+  return (
+    <section className="py-32 px-4 sm:px-6 lg:px-8 relative bg-gradient-to-b from-transparent via-primary/5 to-transparent">
+      <div className="max-w-7xl mx-auto">
         <motion.div
-          while
-          transition={{ duration: 0.6, delay: 0.2 }}
-          <Card className="glass-effect border-primary/30 bg-gradient-to-br from-primary/5 to-accent/5">
-              
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <Badge className="mb-6 px-6 py-2 text-base bg-gradient-to-r from-primary/20 to-accent/20 text-primary border-primary/30" variant="outline">
+            <Trophy className="mr-2" size={20} weight="duotone" />
+            Hackathon Competition Entry
+          </Badge>
+          <h2 className="font-['Space_Grotesk'] font-semibold text-4xl sm:text-5xl md:text-6xl mb-6">
+            Logitech Actions SDK Challenge
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            This project was built for the Logitech Actions SDK Hackathon 2024, showcasing the future of creative workflow automation.
+          </p>
         </motion.div>
 
-                    </h3>
-                  <di
-                      <Badge variant="outlin
-                      <Badge variant="outline"
+        <div className="grid lg:grid-cols-2 gap-8 mb-8">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-                      <Badge variant="outl
+            transition={{ duration: 0.6 }}
           >
-                  <Separator className="my-6" />
+            <Card className="glass-effect border-border/50 h-full">
               <CardHeader>
-                      <span>Full SDK Integration with Actions 
-                    <div className="flex items-center gap-2">
-                      <span>AI-powered features using OpenAI API</span>
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="p-3 rounded-lg bg-gradient-to-br from-primary to-accent">
+                    <Trophy size={28} weight="duotone" className="text-primary-foreground" />
                   </div>
-                      <
-                    <div className="flex items-center gap-2">
-                      <span>Real-time collaboration simulation</span>
+                  <div>
+                    <CardTitle className="text-2xl">Project Highlights</CardTitle>
+                    <CardDescription>Why MotionFlow AI stands out</CardDescription>
                   </div>
-                
+                </div>
               </CardHeader>
-                    <h4 className="font-['Space_G
-                    </h4>
-                      Active 
-                    key={feature}
-                        <div className="text-3xl fon
-                      </div>
-                        <div className="text-
-                      </div>
-                        <div className="text-3xl font-bold text-primary">{timeLeft.minutes}</div>
-                  >
-                        <div className="text-3xl font-bold text-primary">{timeLeft.seconds}</div>
-                    <span className="text-sm">{feature}</span>
-                  </motion.div>
-                ))}
+              <CardContent className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <Check className="text-primary mt-0.5 flex-shrink-0" size={20} weight="bold" />
+                  <span className="text-foreground/90">Multi-application support with intelligent context switching</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-primary mt-0.5 flex-shrink-0" size={20} weight="bold" />
+                  <span className="text-foreground/90">AI-powered asset generation integrated with physical controls</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-primary mt-0.5 flex-shrink-0" size={20} weight="bold" />
+                  <span className="text-foreground/90">Community-driven preset sharing platform</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-primary mt-0.5 flex-shrink-0" size={20} weight="bold" />
+                  <span className="text-foreground/90">Real-time collaboration features</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Check className="text-primary mt-0.5 flex-shrink-0" size={20} weight="bold" />
+                  <span className="text-foreground/90">Comprehensive interactive demos and visualizations</span>
+                </div>
               </CardContent>
             </Card>
           </motion.div>
@@ -143,12 +144,12 @@ export function HackathonInfo() {
                 <div className="flex items-center gap-3 mb-2">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-accent to-secondary">
                     <Star size={28} weight="duotone" className="text-primary-foreground" />
-
+                  </div>
                   <div>
                     <CardTitle className="text-2xl">Judging Criteria</CardTitle>
                     <CardDescription>How this project excels</CardDescription>
                   </div>
-
+                </div>
               </CardHeader>
               <CardContent className="space-y-4">
                 {criteria.map((criterion, index) => {
@@ -207,41 +208,41 @@ export function HackathonInfo() {
                     </div>
                   </div>
                   <Separator className="my-6" />
-
+                  <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Full SDK Integration with Actions Ring support</span>
-
+                    </div>
                     <div className="flex items-center gap-2">
-
+                      <Check className="text-primary" size={16} weight="bold" />
                       <span>AI-powered features using OpenAI API</span>
-
+                    </div>
                     <div className="flex items-center gap-2">
-
+                      <Check className="text-primary" size={16} weight="bold" />
                       <span>Persistent state with KV storage</span>
-
+                    </div>
                     <div className="flex items-center gap-2">
                       <Check className="text-primary" size={16} weight="bold" />
                       <span>Real-time collaboration simulation</span>
                     </div>
                   </div>
-
+                </div>
                 
                 <div className="text-center">
                   <div className="inline-block p-8 rounded-2xl bg-gradient-to-br from-primary/20 to-accent/20">
                     <Calendar className="mx-auto mb-4 text-primary" size={48} weight="duotone" />
                     <h4 className="font-['Space_Grotesk'] font-semibold text-xl mb-2">
-
+                      Competition Countdown
                     </h4>
                     <Badge className="mb-6 bg-green-500/20 text-green-400 border-green-500/30">
                       Active Submission
-
+                    </Badge>
                     <div className="grid grid-cols-4 gap-4 mt-6">
-
+                      <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.days}</div>
                         <div className="text-xs text-muted-foreground mt-1">Days</div>
                       </div>
-
+                      <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.hours}</div>
                         <div className="text-xs text-muted-foreground mt-1">Hours</div>
                       </div>
@@ -251,16 +252,16 @@ export function HackathonInfo() {
                       </div>
                       <div className="text-center">
                         <div className="text-3xl font-bold text-primary">{timeLeft.seconds}</div>
-
+                        <div className="text-xs text-muted-foreground mt-1">Secs</div>
                       </div>
                     </div>
                   </div>
-
+                </div>
               </div>
-
+            </CardContent>
           </Card>
-
+        </motion.div>
       </div>
-
+    </section>
   )
-
+}
