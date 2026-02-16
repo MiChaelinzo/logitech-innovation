@@ -5,13 +5,16 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
+import { toast } from 'sonner'
 import { 
   Check,
   X,
   Sparkle,
   Lightning,
   Crown,
-  ArrowRight
+  ArrowRight,
+  CurrencyDollar,
+  EnvelopeSimple
 } from '@phosphor-icons/react'
 
 type PricingTier = {
@@ -105,6 +108,23 @@ const tiers: PricingTier[] = [
 
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(false)
+
+  const handlePayment = (tier: PricingTier) => {
+    if (tier.id === 'enterprise') {
+      window.location.href = 'mailto:michaelinzo77@gmail.com?subject=MotionFlow AI Enterprise Inquiry'
+    } else {
+      const price = isYearly ? tier.priceYearly : tier.priceMonthly
+      const billingPeriod = isYearly ? 'yearly' : 'monthly'
+      
+      toast.success(`Redirecting to PayPal for ${tier.name} plan`, {
+        description: `$${price}/${billingPeriod} - Secure payment processing`
+      })
+      
+      setTimeout(() => {
+        window.open('https://paypal.me/michaelinzo77', '_blank')
+      }, 1500)
+    }
+  }
 
   return (
     <div className="space-y-12">
@@ -231,6 +251,7 @@ export function Pricing() {
                         : 'w-full'
                     }
                     variant={tier.popular ? 'default' : 'outline'}
+                    onClick={() => handlePayment(tier)}
                   >
                     {tier.cta}
                     <ArrowRight size={18} className="ml-2" weight="bold" />
@@ -256,6 +277,37 @@ export function Pricing() {
             <div>
               <div className="text-4xl font-bold text-secondary mb-2">Cancel</div>
               <div className="text-sm text-muted-foreground">Anytime, no questions</div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      <Card className="glass-effect border-primary/50 bg-gradient-to-br from-primary/10 to-accent/10">
+        <CardContent className="pt-8">
+          <div className="text-center space-y-4">
+            <h3 className="font-['Space_Grotesk'] text-2xl font-semibold">Secure Payment Processing</h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              All subscriptions are processed securely through PayPal. After selecting your plan, 
+              you'll be redirected to complete your payment safely and securely.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+              <a 
+                href="https://paypal.me/michaelinzo77" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-primary hover:text-accent transition-colors font-semibold"
+              >
+                <CurrencyDollar size={24} weight="duotone" />
+                <span>PayPal: paypal.me/michaelinzo77</span>
+              </a>
+              <span className="text-muted-foreground">•</span>
+              <a 
+                href="mailto:michaelinzo77@gmail.com" 
+                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+              >
+                <EnvelopeSimple size={20} weight="duotone" />
+                <span>michaelinzo77@gmail.com</span>
+              </a>
             </div>
           </div>
         </CardContent>

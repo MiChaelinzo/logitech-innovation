@@ -836,20 +836,20 @@ function App() {
               <div className="mt-12 pt-8 border-t border-border/50">
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
                   <a 
-                    href="mailto:pitch@motionflow.ai" 
+                    href="mailto:michaelinzo77@gmail.com" 
                     className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                   >
                     <EnvelopeSimple size={20} weight="duotone" />
-                    <span>pitch@motionflow.ai</span>
+                    <span>michaelinzo77@gmail.com</span>
                   </a>
                   <a 
-                    href="https://github.com" 
+                    href="https://paypal.me/michaelinzo77" 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
                   >
-                    <GithubLogo size={20} weight="duotone" />
-                    <span>View on GitHub</span>
+                    <ArrowRight size={20} weight="duotone" />
+                    <span>Support via PayPal</span>
                   </a>
                 </div>
               </div>
@@ -859,13 +859,73 @@ function App() {
       </section>
 
       <footer className="py-12 px-4 sm:px-6 lg:px-8 border-t border-border/50">
-        <div className="max-w-7xl mx-auto text-center text-muted-foreground">
-          <p className="text-sm">
-            MotionFlow AI - A Logitech Actions SDK Innovation Pitch
-          </p>
-          <p className="text-xs mt-2">
-            Built for the Logitech MX Creative Console & MX Master 4 with Actions Ring
-          </p>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+              <h3 className="font-['Space_Grotesk'] font-bold text-lg mb-4 flex items-center gap-2">
+                <Sparkle size={20} weight="duotone" className="text-primary" />
+                MotionFlow AI
+              </h3>
+              <p className="text-sm text-muted-foreground">
+                A Logitech Actions SDK Innovation Pitch for the MX Creative Console & MX Master 4 with Actions Ring
+              </p>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Contact & Support</h4>
+              <div className="space-y-2 text-sm">
+                <a 
+                  href="mailto:michaelinzo77@gmail.com" 
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <EnvelopeSimple size={16} weight="duotone" />
+                  <span>michaelinzo77@gmail.com</span>
+                </a>
+                <a 
+                  href="https://paypal.me/michaelinzo77" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                >
+                  <ArrowRight size={16} weight="duotone" />
+                  <span>Support via PayPal</span>
+                </a>
+              </div>
+            </div>
+            
+            <div>
+              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <div className="space-y-2 text-sm">
+                <button 
+                  onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })} 
+                  className="block text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  Interactive Demo
+                </button>
+                <button 
+                  onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })} 
+                  className="block text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  Pricing & Payment
+                </button>
+                <button 
+                  onClick={() => document.getElementById('roi')?.scrollIntoView({ behavior: 'smooth' })} 
+                  className="block text-muted-foreground hover:text-primary transition-colors text-left"
+                >
+                  ROI Calculator
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div className="pt-8 border-t border-border/50 text-center text-muted-foreground">
+            <p className="text-sm">
+              MotionFlow AI - A Logitech Actions SDK Innovation Pitch
+            </p>
+            <p className="text-xs mt-2">
+              Secure payments processed through PayPal • All inquiries: michaelinzo77@gmail.com
+            </p>
+          </div>
         </div>
       </footer>
     </div>

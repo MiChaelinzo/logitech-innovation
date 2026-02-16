@@ -16,6 +16,7 @@ import {
   Sparkle
 } from '@phosphor-icons/react'
 import { useKV } from '@github/spark/hooks'
+import { PaymentButton } from '@/components/PaymentButton'
 
 type ROIData = {
   teamSize: number
@@ -320,18 +321,21 @@ export function ROICalculator() {
             </div>
 
             <div className="space-y-3">
-              <Button 
-                className="w-full bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg py-6"
+              <PaymentButton 
+                className="bg-gradient-to-r from-primary to-accent hover:opacity-90 text-lg py-6"
                 size="lg"
-              >
-                Start Free Trial
-              </Button>
+                fullWidth
+                planName="MotionFlow AI"
+              />
               <Button 
                 variant="outline" 
                 className="w-full"
+                onClick={() => {
+                  window.location.href = 'mailto:michaelinzo77@gmail.com?subject=ROI Report Request&body=Please send me the full ROI report'
+                }}
               >
                 <Download size={18} />
-                Download Full ROI Report
+                Request Full ROI Report
               </Button>
             </div>
           </CardContent>

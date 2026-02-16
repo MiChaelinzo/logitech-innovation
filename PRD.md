@@ -90,11 +90,11 @@ A sophisticated marketing and demonstration platform showcasing an AI-powered pl
 - **Success criteria**: Users interact with at least 3 presets and save favorites
 
 ### ROI Calculator
-- **Functionality**: Interactive calculator showing time/cost savings with inputs for team size, tools used, hourly rate, and hours per week, with save/load functionality for calculations
-- **Purpose**: Help decision-makers justify the purchase with concrete financial data
+- **Functionality**: Interactive calculator showing time/cost savings with inputs for team size, tools used, hourly rate, and hours per week, with save/load functionality for calculations. Integrated PayPal payment button (https://paypal.me/michaelinzo77) for immediate subscription purchase after seeing ROI. Email ROI reports to michaelinzo77@gmail.com on request.
+- **Purpose**: Help decision-makers justify the purchase with concrete financial data, then enable immediate conversion with one-click payment
 - **Trigger**: User navigates to ROI calculator section
-- **Progression**: Enter team size → Select tools used → Input hourly rate and hours → See projected savings in time/money → Save calculation → Share results
-- **Success criteria**: Users complete calculation and see compelling ROI (typically 70%+ time savings)
+- **Progression**: Enter team size → Select tools used → Input hourly rate and hours → See projected savings in time/money → Save calculation → Click payment button to subscribe via PayPal → Request detailed report via email
+- **Success criteria**: Users complete calculation, see compelling ROI (typically 70%+ time savings), and 15%+ click through to payment
 
 ### Video Showcase Gallery
 - **Functionality**: Embedded video demonstrations of real usage across different applications with thumbnails, modal player, navigation controls, and sharing options
@@ -104,11 +104,11 @@ A sophisticated marketing and demonstration platform showcasing an AI-powered pl
 - **Success criteria**: >50% of users play at least one video
 
 ### Pricing Comparison
-- **Functionality**: Compare different licensing tiers (Starter/Professional/Enterprise) with feature matrix, pricing details, and call-to-action buttons
-- **Purpose**: Guide purchase decisions with clear pricing structure
+- **Functionality**: Compare different licensing tiers (Starter/Professional/Enterprise) with feature matrix, pricing details, integrated PayPal payment processing (https://paypal.me/michaelinzo77), and call-to-action buttons. All payment flows redirect to secure PayPal for transaction processing. Contact email (michaelinzo77@gmail.com) for enterprise inquiries and support.
+- **Purpose**: Guide purchase decisions with clear pricing structure and secure, trusted payment processing
 - **Trigger**: User navigates to pricing section
-- **Progression**: View pricing tiers → Compare features → Select appropriate tier → Click CTA for purchase or trial
-- **Success criteria**: Users compare tiers and click CTA
+- **Progression**: View pricing tiers → Compare features → Select appropriate tier → Click CTA → Redirected to PayPal for payment → Receive confirmation email at michaelinzo77@gmail.com
+- **Success criteria**: Users compare tiers, click CTA, and complete payment through PayPal
 
 ### Case Studies & Testimonials
 - **Functionality**: Real-world success stories from leading studios showing measurable results and testimonials from industry professionals with photos, companies, and roles
